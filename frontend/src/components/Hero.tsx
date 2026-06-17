@@ -1,4 +1,4 @@
-import { FaCloudDownloadAlt } from "react-icons/fa";
+import { FaArrowDown } from "react-icons/fa";
 import image1 from "../assets/image1.png";
 import image2 from "../assets/image2.png";
 
@@ -68,6 +68,7 @@ const Hero = () => {
         </p>
         
         {/* Professional Blue Button */}
+        {/* Professional Blue Button */}
         <button 
           className="btn btn-lg text-white rounded-pill px-5 py-3 shadow-lg border-0 transition-hover" 
           style={{ 
@@ -89,9 +90,16 @@ const Hero = () => {
             e.currentTarget.style.transform = "translateY(0)";
             e.currentTarget.style.boxShadow = "0 0.5rem 1rem rgba(0, 0, 0, 0.15)";
           }}
+          onClick={() => {
+            const section = document.getElementById('doctors');
+            if (section) {
+              const headerHeight = 90; // Adjust if your navbar height is different
+              const y = section.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+              window.scrollTo({ top: y, behavior: "smooth" });
+            }
+          }}
         >
-          <FaCloudDownloadAlt className="me-3" fontSize="1.3rem" /> 
-          Download Doctor List
+          View Our Specialists
         </button>
       </div>
 

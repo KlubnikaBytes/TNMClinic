@@ -6,6 +6,8 @@ import {
   FaPhoneAlt, 
   FaMapMarkerAlt 
 } from "react-icons/fa";
+// 1. Import your custom logo from the assets folder
+import clinicLogo from "../assets/icon.png";
 
 const Footer = () => {
   const scrollToSection = (sectionId: string) => {
@@ -26,38 +28,22 @@ const Footer = () => {
           {/* Left Section: Brand & About */}
           <div className="col-lg-4 pe-lg-4">
             
-            {/* Pure Typographic Logo for Dark Background */}
+            {/* Custom Image Logo */}
             <a 
               href="#" 
               className="text-decoration-none d-inline-block mb-4"
               onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: "smooth" }); }}
             >
-              <div className="d-flex flex-column justify-content-center">
-                <span 
-                  style={{ 
-                    color: "#ffffff", 
-                    fontSize: "28px", // Adjusted for the longer name
-                    fontWeight: "900", 
-                    lineHeight: "0.9", 
-                    letterSpacing: "-0.5px",
-                    fontFamily: "Arial, sans-serif"
-                  }}
-                >
-                  The Newtown
-                </span>
-                <span 
-                  style={{ 
-                    color: "#b4d333", // Lime Green Accent
-                    fontSize: "11px", 
-                    fontWeight: "700", 
-                    letterSpacing: "1.5px", 
-                    textTransform: "uppercase",
-                    marginTop: "6px"
-                  }}
-                >
-                  Multispeciality Clinic
-                </span>
-              </div>
+              <img 
+                src={clinicLogo} 
+                alt="The Newtown Multispeciality Clinic" 
+                style={{ 
+                  height: "70px", // Sized slightly larger for the footer
+                  transition: "transform 0.3s ease" 
+                }} 
+                onMouseEnter={(e) => e.currentTarget.style.transform = "scale(1.02)"}
+                onMouseLeave={(e) => e.currentTarget.style.transform = "scale(1)"}
+              />
             </a>
 
             <p style={{ fontSize: "0.95rem", lineHeight: "1.8", color: "#aab7c4", marginBottom: "25px" }}>
@@ -133,7 +119,7 @@ const Footer = () => {
             <div className="d-flex flex-column gap-3" style={{ color: "#aab7c4", fontSize: "0.95rem" }}>
               <div className="d-flex align-items-start gap-3">
                 <FaEnvelope className="mt-1 flex-shrink-0" style={{ color: "#0072ce" }} />
-                <span>newtownmultispecialityclinic@gmail.com</span>
+                <span>thenmc2026@gmail.com</span>
               </div>
               
               <div className="d-flex align-items-start gap-3">

@@ -1,4 +1,6 @@
 import { FaArrowRight } from "react-icons/fa";
+// 1. Import your custom logo from the assets folder
+import clinicLogo from "../assets/icon.png";
 
 const Navbar = () => {
   const scrollToSection = (sectionId: string) => {
@@ -31,38 +33,22 @@ const Navbar = () => {
     >
       <div className="container">
         
-        {/* Premium Pure-Text Typographic Logo */}
+        {/* 2. Custom Image Logo */}
         <a 
           className="navbar-brand d-flex align-items-center text-decoration-none" 
           href="#" 
           onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: "smooth" }); }}
         >
-          <div className="d-flex flex-column justify-content-center">
-            <span 
-              style={{ 
-                color: "#003366", // Deep Navy for authority
-                fontSize: "1.6rem", // Sized up since the icon is gone
-                fontWeight: "900", 
-                lineHeight: "0.9",
-                fontFamily: "Arial, sans-serif",
-                letterSpacing: "-0.5px"
-              }}
-            >
-              The Newtown
-            </span>
-            <span 
-              style={{ 
-                color: "#0072ce", // Primary blue for the descriptor
-                fontSize: "0.75rem", 
-                fontWeight: "700", 
-                letterSpacing: "1.5px", // Premium wide spacing
-                textTransform: "uppercase",
-                marginTop: "6px" // Clean breathing room between the lines
-              }}
-            >
-              Multispeciality Clinic
-            </span>
-          </div>
+          <img 
+            src={clinicLogo} 
+            alt="The Newtown Multispeciality Clinic" 
+            style={{ 
+              height: "90px", // perfectly sized for the navbar
+              transition: "transform 0.3s ease" 
+            }} 
+            onMouseEnter={(e) => e.currentTarget.style.transform = "scale(1.02)"}
+            onMouseLeave={(e) => e.currentTarget.style.transform = "scale(1)"}
+          />
         </a>
 
         {/* Toggler for Mobile */}
