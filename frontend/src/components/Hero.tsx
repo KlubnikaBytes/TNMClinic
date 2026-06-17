@@ -68,7 +68,6 @@ const Hero = () => {
         </p>
         
         {/* Professional Blue Button */}
-        {/* Professional Blue Button */}
         <button 
           className="btn btn-lg text-white rounded-pill px-5 py-3 shadow-lg border-0 transition-hover" 
           style={{ 
@@ -76,7 +75,10 @@ const Hero = () => {
             fontWeight: "700",
             fontSize: "1.1rem",
             letterSpacing: "0.5px",
-            transition: "all 0.3s ease"
+            transition: "all 0.3s ease",
+            display: "inline-flex",
+            alignItems: "center",
+            justifyContent: "center"
           }}
           onMouseEnter={(e) => {
             e.currentTarget.style.backgroundColor = "#b4d333"; 
@@ -99,6 +101,8 @@ const Hero = () => {
             }
           }}
         >
+          {/* Added the missing icon right here */}
+          <FaArrowDown className="me-3" fontSize="1.1rem" /> 
           View Our Specialists
         </button>
       </div>
