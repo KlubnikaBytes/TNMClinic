@@ -6,7 +6,8 @@ const TopBar = () => {
       <div className="d-flex align-items-center gap-4">
         <span className="d-flex align-items-center gap-2"><FaPhoneAlt /> 08100650033</span>
         <span className="d-flex align-items-center gap-2"><FaEnvelope /> thenmc2026@gmail.com</span>
-        <span className="d-flex align-items-center gap-2"><FaMapMarkerAlt />CE 29 & CE 36, Street no-247, Action Area I, Newtown, Kolkata-156</span>
+        <span className="d-flex align-items-center gap-2"><FaMapMarkerAlt />CE 29 & CE 36 Street No 247, Action Area I
+Newtown, Kolkata 700156</span>
       </div>
       <div className="d-flex align-items-center gap-3">
         <FaTwitter className="cursor-pointer hover-opacity" />

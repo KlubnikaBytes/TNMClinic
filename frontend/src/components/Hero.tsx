@@ -1,6 +1,8 @@
-import { FaArrowDown } from "react-icons/fa";
+import { FaUserMd, FaVial } from "react-icons/fa";
 import image1 from "../assets/image1.png";
 import image2 from "../assets/image2.png";
+// 1. Import the PDF file so Vite bundles it correctly
+import doctorListPDF from "../assets/The Newtown Multispeciality Clinic DOCTOR LIST1.pdf";
 
 const Hero = () => {
   return (
@@ -19,7 +21,6 @@ const Hero = () => {
           zIndex: 0,
           backgroundImage: `url(${image1})`,
           backgroundSize: "cover",
-          // Anchors the image to the top so the clinic signboard is fully visible
           backgroundPosition: "center top", 
         }}
       ></div>
@@ -67,44 +68,81 @@ const Hero = () => {
           You Can Book An Appointment With The Doctor Of Your Choice By Clicking The Button Below.
         </p>
         
-        {/* Professional Blue Button */}
-        <button 
-          className="btn btn-lg text-white rounded-pill px-5 py-3 shadow-lg border-0 transition-hover" 
-          style={{ 
-            backgroundColor: "#0072ce", 
-            fontWeight: "700",
-            fontSize: "1.1rem",
-            letterSpacing: "0.5px",
-            transition: "all 0.3s ease",
-            display: "inline-flex",
-            alignItems: "center",
-            justifyContent: "center"
-          }}
-          onMouseEnter={(e) => {
-            e.currentTarget.style.backgroundColor = "#b4d333"; 
-            e.currentTarget.style.color = "#003366"; 
-            e.currentTarget.style.transform = "translateY(-3px)";
-            e.currentTarget.style.boxShadow = "0 10px 25px rgba(180, 211, 51, 0.4)";
-          }}
-          onMouseLeave={(e) => {
-            e.currentTarget.style.backgroundColor = "#0072ce";
-            e.currentTarget.style.color = "#ffffff";
-            e.currentTarget.style.transform = "translateY(0)";
-            e.currentTarget.style.boxShadow = "0 0.5rem 1rem rgba(0, 0, 0, 0.15)";
-          }}
-          onClick={() => {
-            const section = document.getElementById('doctors');
-            if (section) {
-              const headerHeight = 90; // Adjust if your navbar height is different
-              const y = section.getBoundingClientRect().top + window.pageYOffset - headerHeight;
-              window.scrollTo({ top: y, behavior: "smooth" });
-            }
-          }}
-        >
-          {/* Added the missing icon right here */}
-          <FaArrowDown className="me-3" fontSize="1.1rem" /> 
-          View Our Specialists
-        </button>
+        {/* Dual Call-To-Action Buttons */}
+        <div className="d-flex flex-column flex-sm-row justify-content-center gap-3 mt-2">
+          
+          {/* Doctors List Download Button (Changed to an <a> tag) */}
+          <a 
+            href={doctorListPDF} 
+            download="The_Newtown_Clinic_Doctor_List.pdf" // This forces the browser to download it
+            className="btn btn-lg text-white rounded-pill px-5 py-3 shadow-lg border-0 transition-hover text-decoration-none" 
+            style={{ 
+              backgroundColor: "#0072ce", 
+              fontWeight: "700",
+              fontSize: "1.1rem",
+              letterSpacing: "0.5px",
+              transition: "all 0.3s ease",
+              display: "inline-flex",
+              alignItems: "center",
+              justifyContent: "center"
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.backgroundColor = "#b4d333"; 
+              e.currentTarget.style.color = "#003366"; 
+              e.currentTarget.style.transform = "translateY(-3px)";
+              e.currentTarget.style.boxShadow = "0 10px 25px rgba(180, 211, 51, 0.4)";
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.backgroundColor = "#0072ce";
+              e.currentTarget.style.color = "#ffffff";
+              e.currentTarget.style.transform = "translateY(0)";
+              e.currentTarget.style.boxShadow = "0 0.5rem 1rem rgba(0, 0, 0, 0.15)";
+            }}
+          >
+            <FaUserMd className="me-2" fontSize="1.2rem" /> 
+            Download Doctors List
+          </a>
+
+          {/* Blood Test List Button */}
+          <button 
+            className="btn btn-lg rounded-pill px-5 py-3 shadow-lg border-0 transition-hover" 
+            style={{ 
+              backgroundColor: "#b4d333", // Primary Accent Green
+              color: "#003366", // Navy Text
+              fontWeight: "700",
+              fontSize: "1.1rem",
+              letterSpacing: "0.5px",
+              transition: "all 0.3s ease",
+              display: "inline-flex",
+              alignItems: "center",
+              justifyContent: "center"
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.backgroundColor = "#ffffff"; 
+              e.currentTarget.style.color = "#0072ce"; 
+              e.currentTarget.style.transform = "translateY(-3px)";
+              e.currentTarget.style.boxShadow = "0 10px 25px rgba(255, 255, 255, 0.3)";
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.backgroundColor = "#b4d333";
+              e.currentTarget.style.color = "#003366";
+              e.currentTarget.style.transform = "translateY(0)";
+              e.currentTarget.style.boxShadow = "0 0.5rem 1rem rgba(0, 0, 0, 0.15)";
+            }}
+            onClick={() => {
+              const section = document.getElementById('services'); 
+              if (section) {
+                const headerHeight = 90; 
+                const y = section.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+                window.scrollTo({ top: y, behavior: "smooth" });
+              }
+            }}
+          >
+            <FaVial className="me-2" fontSize="1.1rem" /> 
+            Blood Test List
+          </button>
+
+        </div>
       </div>
 
       {/* 4. Decorative Bottom Curve (z-index: 2) */}
