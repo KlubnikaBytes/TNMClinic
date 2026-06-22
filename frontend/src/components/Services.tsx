@@ -32,10 +32,6 @@ const coreServices = [
 
 // --- Data: Standard Packages ---
 const standardPackages = [
-  { title: "Ayush 1 (35 Tests)", desc: "FBS(1), Thyroid(1), Lipid Profile(8), LFT(11), RFT/KFT(13), EGFR(1)", popular: false },
-  { title: "Ayush 2 (56 Tests)", desc: "FBS(1), CBC(20), HbA1c(1), Thyroid(1), Lipid Profile(8), LFT(11), RFT/KFT(13), EGFR(1)", popular: false },
-  { title: "Ayush 3 (71 Tests)", desc: "FBS(1), CBC(20), Thyroid Profile(3), Lipid Profile(8), LFT(11), RFT/KFT(13), Complete Urine Examination(14), EGFR(1)", popular: false },
-  { title: "Ayush 4 / Wellness (60 Tests)", desc: "FBS(1), CBC(20), HbA1c(1), Thyroid Profile(3), Lipid Profile(8), LFT(11), RFT/KFT(13), Vitamin B12(1), Vitamin D(1), EGFR(1)", popular: true },
   { title: "Vitamin Check Basic", desc: "25-hydroxy Vitamin D (D2+D3), Calcium - Serum, Vitamin B12", popular: false },
   { title: "AAROGYAM 1.1 WITH UTSH (63 Tests)", desc: "Cardiac Risk Markers, Liver, Toxic Elements, Iron Deficiency, Renal, Lipid, T3 T4 Tsh", popular: false },
   { title: "AAROGYAM 1.2 WITH UTSH (93 Tests)", desc: "Diabetes, Liver, Complete Hemogram, Toxic Elements, Iron Deficiency, Renal, Lipid, T3 T4 Tsh", popular: false },

@@ -1,246 +1,262 @@
 import { useRef, useState } from "react";
 import { FaChevronLeft, FaChevronRight, FaUserMd } from "react-icons/fa";
 
-// 1. Import ALL local doctor images with exact extensions from your assets folder
-import imgAditya from "../assets/doctor image/Dr. Aditya Ghosh Roy.webp";
-import imgAishee from "../assets/doctor image/Dr. Aishee Bhattacharya.png";
-import imgAniruddha from "../assets/doctor image/Dr. Aniruddha Chakrabarty.jpg";
-import imgAranyak from "../assets/doctor image/Dr. Aranyak Sarkar.jpeg";
-import imgArka from "../assets/doctor image/Dr. Arka Adhvaryu (Retd).avif";
-import imgArkaprava from "../assets/doctor image/Dr. Arkaprava Mahapatra.jpg";
-import imgAswini from "../assets/doctor image/Dr. Aswini Rana.jpg";
-import imgAtanu from "../assets/doctor image/Dr. Atanu Biswas.webp";
-import imgAviroop from "../assets/doctor image/Dr. Aviroop Saha Roy.avif";
-import imgGargi from "../assets/doctor image/Dr. Gargi Nandi.jpg";
-import imgIndrashis from "../assets/doctor image/Dr. Indrashis Podder.png";
-import imgIpseet from "../assets/doctor image/Dr. Ipseet Mishra.jpg";
-import imgKaran from "../assets/doctor image/Dr. Karan Sehgal.avif";
-import imgKavita from "../assets/doctor image/Dr. Kavita Mandal.jpg";
-import imgKoustav from "../assets/doctor image/Dr. Koustav Jana.jpeg";
-import imgKrishanko from "../assets/doctor image/Dr. Krishanko Das.png";
-import imgLipika from "../assets/doctor image/Dr. Lipika Das (Mukhopadhyay).webp";
-import imgPartha from "../assets/doctor image/Dr. Partha Chakraborty.webp";
-import imgPritha from "../assets/doctor image/Dr. Pritha Chakraborty.jpg";
-import imgRahul from "../assets/doctor image/Dr. Rahul Bhattacharya.jpg";
-import imgRohan from "../assets/doctor image/Dr. Rohan Sinha.jpg";
-import imgSaurav from "../assets/doctor image/Dr. Saurav Sarkar.jpg";
-import imgSayan from "../assets/doctor image/Dr. Sayan Mazumder.jpg";
-import imgSayantan from "../assets/doctor image/Dr. Sayantan Saha.webp";
-import imgSebabrata from "../assets/doctor image/Dr. Sebabrata Jana.avif";
-import imgSilima from "../assets/doctor image/Dr. Silima S Tarenia.jpg";
-import imgSouryav from "../assets/doctor image/Dr. Souryav Sankar Mondal.jpg";
-import imgSudeshna from "../assets/doctor image/Dr. Sudeshna Mallik.jpg";
-import imgTK from "../assets/doctor image/Dr. T. K. Biswas.png";
-import imgTamajit from "../assets/doctor image/Dr. Tamajit Chakraborty.jpg";
-import imgTaniya from "../assets/doctor image/Dr. Taniya Bhuiya.jpg";
-import imgPurbasha from "../assets/doctor image/Purbasha Ghosh.jpg";
+// ── ALL available images (exact filenames verified from VSCode explorer) ────
+import imgAishee          from "../assets/doctor image/Dr. Aishee Bhattacharya.png";
+import imgAnirbanRay      from "../assets/doctor image/Dr. Anirban Ray.jpg";
+import imgAniruddha       from "../assets/doctor image/Dr. Aniruddha Chakrabarty.jpg";
+import imgAnurag          from "../assets/doctor image/Dr. Anurag Chatterjee.jpg";
+import imgAranyak         from "../assets/doctor image/Dr. Aranyak Sarkar.jpeg";
+import imgArijit          from "../assets/doctor image/Dr. Arijit Chakraborty.jpg";
+import imgArka            from "../assets/doctor image/Dr. Arka Adhvaryu (Retd).avif";
+import imgArkaprava       from "../assets/doctor image/Dr. Arkaprava Mahapatra.webp";
+import imgAswini          from "../assets/doctor image/Dr. Aswini Rana.jpg";
+import imgAtanu           from "../assets/doctor image/Dr. Atanu Biswas.avif";
+import imgAviroop         from "../assets/doctor image/Dr. Aviroop Saha Roy.jpg";
+import imgDebasish        from "../assets/doctor image/Dr. Debasish Bhattacharya.jpg";
+import imgDipankar        from "../assets/doctor image/Dr. Dipankar Pal.jpg";
+import imgGargi           from "../assets/doctor image/Dr. Gargi Nandi.jpg";
+import imgGaurav          from "../assets/doctor image/Dr. Gaurav Aggarwal.jpg";
+import imgIndrashis       from "../assets/doctor image/Dr. Indrashis Podder.jpg";
+import imgIpseet          from "../assets/doctor image/Dr. Ipseet Mishra.jpg";
+import imgKaran           from "../assets/doctor image/Dr. Karan Sehgal.jpg";
+import imgKhooshboo       from "../assets/doctor image/Dr. Khooshboo Agarwal.jpg";
+import imgKoustav         from "../assets/doctor image/Dr. Koustav Jana.jpeg";
+import imgKrishanko       from "../assets/doctor image/Dr. Krishanko Das.png";
+import imgLipika          from "../assets/doctor image/Dr. Lipika Das(Mukhopadhyay).jpg";
+import imgPartha          from "../assets/doctor image/Dr. Partha Chakraborty.webp";
+import imgRitambhar       from "../assets/doctor image/Dr. Ritambhar Mondal.jpg";
+import imgSankarshan      from "../assets/doctor image/Dr. Sankarshan Saha.jpg";
+import imgSaurav          from "../assets/doctor image/Dr. Saurav Sarkar.jpg";
+import imgSayan           from "../assets/doctor image/Dr. Sayan Mazumder.jpg";
+import imgSebabrata       from "../assets/doctor image/Dr. Sebabrata Jana.avif";
+import imgSilima          from "../assets/doctor image/Dr. Silima S Tarenia.jpg";
+import imgSmita           from "../assets/doctor image/Dr. Smita Ghatak.webp";
+import imgSouryav         from "../assets/doctor image/Dr. Souryav Shankar Mondal.jpg";
+import imgSubhasishDeb    from "../assets/doctor image/Dr.  Subhasish Deb.jpg";
+import imgSubhro          from "../assets/doctor image/Dr.Subhro Sekhar Chakraborty.png";
+import imgSubrata         from "../assets/doctor image/Dr. Subrata Biswas.webp";
+import imgSudeshna        from "../assets/doctor image/Dr. Sudeshna Mallik.jpg";
+import imgSunanda         from "../assets/doctor image/Dr. Sunanda De.jpg";
+import imgTK              from "../assets/doctor image/Dr. T. K. Biswas.png";
+import imgTamajit         from "../assets/doctor image/Dr. Tamajit Chakraborty.jpg";
+import imgTithi           from "../assets/doctor image/Dr. Tithi Debnath.jpg";
+import imgAbhishek        from "../assets/doctor image/Dr.Abhishek Bhaumik.jpg";
 
-// Bulletproof SVG Placeholder for any missing images
-const defaultDoctorImage = "data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Crect%20width%3D%2224%22%20height%3D%2224%22%20fill%3D%22%23f1f5f9%22%2F%3E%3Cpath%20d%3D%22M12%2012c2.21%200%204-1.79%204-4s-1.79-4-4-4-4%201.79-4%204%201.79%204%204%204zm0%202c-2.67%200-8%201.34-8%204v2h16v-2c0-2.66-5.33-4-8-4z%22%20fill%3D%22%2394a3b8%22%2F%3E%3C%2Fsvg%3E";
+// ── SVG placeholder for truly missing photos ──────────────────────────────
+const defaultImg =
+  "data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23e8edf2'/%3E%3Ccircle cx='50' cy='36' r='22' fill='%2394a3b8'/%3E%3Cellipse cx='50' cy='88' rx='32' ry='22' fill='%2394a3b8'/%3E%3C/svg%3E";
 
-// 3. Complete Departments and Doctors Data Mapped to Local Images
+// ── Departments ordered for even column packing (max 5 per column) ────────
+// Column layout:
+//  Col 1 → Orthopaedics(1) + Paediatrics(1) + Endocrinology(1) + Pain & Palliative(1) = 4
+//  Col 2 → Psychiatry(2) + Dermatology(2) = 4
+//  Col 3 → Pulmonology(2) + Neurology(2) = 4
+//  Col 4 → General Medicine/Diabetology(5) = 5
+//  Col 5 → Cardiology(3) + ENT(2) = 5
+//  Col 6 → Gynaecology & Obstetrics(3) + Urology(2) = 5
+//  Col 7 → Surgical Oncology(2) + Neurosurgery(3) = 5
+//  Col 8 → General Surgery(5) = 5
 const departmentsData = [
-  {
-    department: "General Medicine",
-    doctors: [
-      { name: "Dr. Aswini Rana", degree: "MBBS (Cal), MD (Medicine), IPGMER CCEBDM", image: imgAswini },
-      { name: "Dr. T. K. Biswas", degree: "MBBS, D.T.M. & H, Tropical Medicine (MD)", image: imgTK },
-      { name: "Dr. Atanu Biswas", degree: "MBBS, MD, CCEBDM, CCIGC", image: imgAtanu },
-      { name: "Dr. Sayan Mazumder", degree: "MD Physician & Diabetes Specialist", image: imgSayan }
-    ]
-  },
+  // ── Col 1 ────────────────────────────────────────────────────────────────
   {
     department: "Orthopaedics",
     doctors: [
-      { name: "Dr. Aranyak Sarkar", degree: "MBBS, MS (Ortho), Fellowship in Arthroscopy", image: imgAranyak }
-    ]
+      { name: "Dr. Aranyak Sarkar",   degree: "MBBS, MS (Ortho), Fellowship in Arthroscopy", image: imgAranyak },
+    ],
+  },
+  {
+    department: "Paediatrics (Child Specialist)",
+    doctors: [
+      { name: "Dr. Partha Chakraborty", degree: "MBBS (Cal), DCH (Cal), MRCPCH (UK), PGPN (Boston, USA)", image: imgPartha },
+      { name: "Dr. Sudeshna Mallik",    degree: "MBBS, MD (Paediatrics)", image: imgSudeshna },
+    ],
+  },
+  {
+    department: "Endocrinology",
+    doctors: [
+      { name: "Dr. Silima S Tarenia", degree: "MD, DM (Endocrinology), DrNB (Endocrinology)", image: imgSilima },
+    ],
+  },
+  {
+    department: "Pain & Palliative Care",
+    doctors: [
+      { name: "Dr. Gargi Nandi", degree: "MBBS, MD, DNB (Anaesthesiology), Fellowship in Pain Management (WBUHS), CCEPC", image: imgGargi },
+    ],
+  },
+  // ── Col 2 ────────────────────────────────────────────────────────────────
+  {
+    department: "Psychiatry",
+    doctors: [
+      { name: "Maj. (Dr.) Arka Adhvaryu (Retd.)", degree: "MBBS (WBUHS), MD Psychiatry (MUHS, AFMC)", image: imgArka },
+      { name: "Dr. Arkaprava Mahapatra",           degree: "MBBS (WBUHS), MD Psychiatry",               image: imgArkaprava },
+    ],
+  },
+  {
+    department: "Dermatology",
+    doctors: [
+      { name: "Dr. Indrashis Podder",    degree: "MBBS, MD, DNB, MNAMS — EAACI Research Fellow (Urticaria), Hospital Del Mar, Barcelona, Spain", image: imgIndrashis },
+      { name: "Dr. Aniruddha Chakrabarty", degree: "MBBS (Kol), MD (DVL) (W.B.U.H.S)", image: imgAniruddha },
+    ],
+  },
+  // ── Col 3 ────────────────────────────────────────────────────────────────
+  {
+    department: "Pulmonology",
+    doctors: [
+      { name: "Dr. Anirban Ray",          degree: "MBBS, DTCD (Cal), DNB",          image: imgAnirbanRay },
+      { name: "Dr. Debasish Bhattacharya", degree: "MBBS, MD (Chest Medicine)",      image: imgDebasish },
+    ],
   },
   {
     department: "Neurology",
     doctors: [
-      { name: "Dr. Aishee Bhattacharya", degree: "MBBS, MD Medicine, DM Neurology", image: imgAishee },
-      { name: "Dr. Koustav Jana", degree: "MBBS, DNB (Medicine), DM (Neurology)", image: imgKoustav }
-    ]
+      { name: "Dr. Aishee Bhattacharya", degree: "MBBS, MD (Medicine), DM (Neurology) — IPGMER & SSKM",                                         image: imgAishee },
+      { name: "Dr. Dipankar Pal",         degree: "MBBS (Hons), MD (Internal Medicine) Gold Medalist, DM (Neurology) — IPGMER & SSKM",           image: imgDipankar },
+    ],
   },
+  // ── Col 4 ────────────────────────────────────────────────────────────────
+  {
+    department: "General Medicine / Diabetology",
+    doctors: [
+      { name: "Dr. Aswini Rana",    degree: "MBBS (Cal), MD (Medicine), IPGMER, CCEBDM (Delhi)", image: imgAswini },
+      { name: "Dr. Atanu Biswas",   degree: "MBBS, MD, CCEBDM, CCIGC",                           image: imgAtanu },
+      { name: "Dr. Sayan Mazumder", degree: "MD Physician, CCOM, FICD, FICM",                    image: imgSayan },
+      { name: "Dr. Subrata Biswas", degree: "MBBS, MD",                                          image: imgSubrata },
+      { name: "Dr. T. K. Biswas",   degree: "MBBS, D.T.M. & H, Tropical Medicine (MD)",         image: imgTK },
+    ],
+  },
+  // ── Col 5 ────────────────────────────────────────────────────────────────
   {
     department: "Cardiology",
     doctors: [
-      { name: "Dr. Krishanko Das", degree: "MBBS (Hons), MD (Medicine), DM (Cardiology)", image: imgKrishanko },
-      { name: "Dr. Sebabrata Jana", degree: "MBBS (Hons), MD (Medicine), DM (Cardiology)", image: imgSebabrata }
-    ]
-  },
-  {
-    department: "Paediatrics",
-    doctors: [
-      { name: "Dr. Partha Chakraborty", degree: "MBBS (Cal), DCH, MRCPCH (UK), PGPN", image: imgPartha },
-      { name: "Dr. Sudeshna Mallik", degree: "MBBS, MD (Paediatrics)", image: imgSudeshna }
-    ]
-  },
-  {
-    department: "Neuro Surgeon",
-    doctors: [
-      { name: "Dr. Tamajit Chakraborty", degree: "MBBS, DNB (Neurosurgery)", image: imgTamajit },
-      { name: "Dr. Souryav Sankar Mondal", degree: "MS (Kol), MCh (Chennai), Consultant Neurosurgeon", image: imgSouryav }
-    ]
-  },
-  {
-    department: "General Surgeon",
-    doctors: [
-      { name: "Dr. Sunanda De", degree: "MBBS, MS, FIAGES", image: defaultDoctorImage }, // Not in screenshots, using fallback
-      { name: "Dr. Rohan Sinha", degree: "MBBS, MS, FMAS", image: imgRohan },
-      { name: "Dr. Saurav Sarkar", degree: "MBBS, MS General Surgery (Gold Medallist)", image: imgSaurav }
-    ]
-  },
-  {
-    department: "Surgical Oncologist",
-    doctors: [
-      { name: "Dr. Ipseet Mishra", degree: "MBBS, MS (General Surgery), DrNB Surgical Oncology", image: imgIpseet },
-      { name: "Dr. Karan Sehgal", degree: "MBBS, MS, Fellowship in Surgical Oncology & GI-HPB", image: imgKaran }
-    ]
-  },
-  {
-    department: "Gynaecologist & Obstetrician",
-    doctors: [
-      { name: "Dr. Lipika Das (Mukhopadhyay)", degree: "MS (G&O) Consultant Gynaecologist", image: imgLipika },
-      { name: "Dr. Pritha Chakraborty", degree: "MBBS, MS (Gynae & Obs)", image: imgPritha },
-      { name: "Dr. Kavita Mandal", degree: "MBBS, MD (Obst. & Gynae), AIIMS", image: imgKavita }
-    ]
-  },
-  {
-    department: "Endocrinologist",
-    doctors: [
-      { name: "Dr. Silima S Tarenia", degree: "MD, DM (Endocrinology), DrNB (Endocrinology)", image: imgSilima }
-    ]
-  },
-  {
-    department: "Geriatrician",
-    doctors: [
-      { name: "Dr. Rahul Bhattacharya", degree: "MBBS, DNB (Gen Medicine), MRCP (UK)", image: imgRahul }
-    ]
-  },
-  {
-    department: "Pulmonologist",
-    doctors: [
-      { name: "Dr. Sayantan Saha", degree: "MBBS, MD, DNB, FNB (Critical Care)", image: imgSayantan }
-    ]
+      { name: "Dr. Krishanko Das",            degree: "MBBS (Hons), MD (Medicine) Gold Medal — IPGMER & SSKM, DM (Cardiology) — R.G. KAR MCH", image: imgKrishanko },
+      { name: "Dr. Subhro Sekhar Chakraborty", degree: "MD (Med), DM (Cardio) — RML Hospital, New Delhi",                                      image: imgSubhro },
+      { name: "Dr. Subhasish Deb",             degree: "MBBS, MD, MRCP (IRE), DM (Delhi, Gold Medalist)",                                      image: imgSubhasishDeb },
+    ],
   },
   {
     department: "ENT",
     doctors: [
-      { name: "Dr. Aviroop Saha Roy", degree: "MBBS, MS ENT (Gold Medalist), DNB, MRCS", image: imgAviroop },
-      { name: "Dr. Aditya Ghosh Roy", degree: "MBBS, MS (ENT)", image: imgAditya }
-    ]
+      { name: "Dr. Aviroop Saha Roy", degree: "MBBS, MS ENT (Gold Medalist), DNB (ENT), MRCS ENT (England)",      image: imgAviroop },
+      { name: "Dr. Tithi Debnath",    degree: "MBBS, MS (ENT), DNB, MRCS ENT (Edinburgh), MNAMS, DAA (CMC Vellore)", image: imgTithi },
+    ],
+  },
+  // ── Col 6 ────────────────────────────────────────────────────────────────
+  {
+    department: "Gynaecology & Obstetrics",
+    doctors: [
+      { name: "Dr. Lipika Das (Mukhopadhyay)", degree: "MS (G&O)",                            image: imgLipika },
+      { name: "Dr. Smita Ghatak",              degree: "MBBS, DGO (WBUHS), DNB (NBEMS, Delhi)", image: imgSmita },
+      { name: "Dr. Khooshboo Agarwal",         degree: "MBBS, MS (OB-GYN)",                  image: imgKhooshboo },
+    ],
   },
   {
-    department: "Pain & Palliative",
+    department: "Urology",
     doctors: [
-      { name: "Dr. Gargi Nandi", degree: "MBBS, MD, DNB (Anesthesiology)", image: imgGargi }
-    ]
+      { name: "Dr. Anurag Chatterjee", degree: "MS (General Surgery), MCh (Urology)",                                                                              image: imgAnurag },
+      { name: "Dr. Gaurav Aggarwal",   degree: "MBBS, MS (General Surgery) Gold Medalist, FAGE, Fellowship (Surgical Oncology) TATA, DNB (Urology)", image: imgGaurav },
+    ],
+  },
+  // ── Col 7 ────────────────────────────────────────────────────────────────
+  {
+    department: "Surgical Oncology",
+    doctors: [
+      { name: "Dr. Ipseet Mishra", degree: "MBBS, MS (General Surgery), DrNB Surgical Oncology (Bangalore)",                                    image: imgIpseet },
+      { name: "Dr. Karan Sehgal",  degree: "MBBS, MS (General Surgery), Fellowship in Surgical Oncology & GI-HPB Surgery (Tata Medical Centre)", image: imgKaran },
+    ],
   },
   {
-    department: "Nephrologist",
+    department: "Neurosurgery",
     doctors: [
-      { name: "Dr. Taniya Bhuiya", degree: "MBBS, MD (Gen Medicine), DM Nephrology", image: imgTaniya }
-    ]
+      { name: "Dr. Arijit Chakraborty",    degree: "MBBS, DrNB Neurosurgery (Manipal Bangalore), Fellowship in MIS Spine (Bangalore)", image: imgArijit },
+      { name: "Dr. Souryav Shankar Mondal", degree: "MS (Kol), MCh Neurosurgery (Chennai)",                                            image: imgSouryav },
+      { name: "Dr. Tamajit Chakraborty",    degree: "MBBS, DNB (Neurosurgery — Gangaram Hospital)",                                    image: imgTamajit },
+    ],
   },
+  // ── Col 8 ────────────────────────────────────────────────────────────────
   {
-    department: "Dermatologist",
+    department: "General Surgery",
     doctors: [
-      { name: "Dr. Indrashis Podder", degree: "MD, DNB, MNAMS", image: imgIndrashis },
-      { name: "Dr. Aniruddha Chakrabarty", degree: "MBBS (Kol), MD (DVL)", image: imgAniruddha }
-    ]
+      { name: "Dr. Sunanda De",      degree: "MBBS, MS (General Surgery), FIAGES — Ex Asst. Prof., IPGMER & SSKM",                       image: imgSunanda },
+      { name: "Dr. Sankarshan Saha", degree: "MS (General Surgery), FMAS",                                                               image: imgSankarshan },
+      { name: "Dr. Abhishek Bhaumik", degree: "MBBS, MS (General Surgery), FNB (Minimal Access Surgery), FALS, EFIAGES, FICRS",          image: imgAbhishek },
+      { name: "Dr. Saurav Sarkar",   degree: "MBBS (SSKM Hospital), MS (General Surgery)",                                               image: imgSaurav },
+      { name: "Dr. Ritambhar Mondal", degree: "MBBS, MS (General Surgery), FMAS, FIAGES",                                               image: imgRitambhar },
+    ],
   },
-  {
-    department: "Psychiatrist",
-    doctors: [
-      { name: "Maj. (Dr) Arka Adhvaryu (Retd)", degree: "MBBS (WBUHS), MD Psychiatry", image: imgArka },
-      { name: "Dr. Arkaprava Mahapatra", degree: "MBBS, MD Psychiatry", image: imgArkaprava }
-    ]
-  },
-  {
-    department: "Psychologist",
-    doctors: [
-      { name: "Purbasha Ghosh", degree: "Consultant Psychologist & Special Educator", image: imgPurbasha }
-    ]
-  }
 ];
 
+// ── Component ──────────────────────────────────────────────────────────────
 const Doctors = () => {
   const sliderRef = useRef<HTMLDivElement>(null);
   const [isDown, setIsDown] = useState(false);
   const [startX, setStartX] = useState(0);
-  const [scrollLeft, setScrollLeft] = useState(0);
+  const [scrollLeftState, setScrollLeftState] = useState(0);
 
-  // --- DATA CHUNKING LOGIC ---
-  const MAX_DOCTORS_PER_COLUMN = 4;
+  // Group departments into columns — max 5 doctors per column
+  const MAX_PER_COL = 5;
   const groupedColumns: { departments: typeof departmentsData; docCount: number }[] = [];
-  let currentColumn = { departments: [] as typeof departmentsData, docCount: 0 };
+  let currentCol = { departments: [] as typeof departmentsData, docCount: 0 };
 
   departmentsData.forEach((dept) => {
-    if (currentColumn.docCount + dept.doctors.length > MAX_DOCTORS_PER_COLUMN && currentColumn.docCount > 0) {
-      groupedColumns.push(currentColumn);
-      currentColumn = { departments: [], docCount: 0 };
+    if (currentCol.docCount + dept.doctors.length > MAX_PER_COL && currentCol.docCount > 0) {
+      groupedColumns.push(currentCol);
+      currentCol = { departments: [], docCount: 0 };
     }
-    currentColumn.departments.push(dept);
-    currentColumn.docCount += dept.doctors.length;
+    currentCol.departments.push(dept);
+    currentCol.docCount += dept.doctors.length;
   });
-  if (currentColumn.docCount > 0) {
-    groupedColumns.push(currentColumn);
-  }
+  if (currentCol.docCount > 0) groupedColumns.push(currentCol);
 
-  // --- SCROLL CONTROLS ---
-  const scroll = (direction: "left" | "right") => {
-    if (sliderRef.current) {
-      const scrollAmount = 370; 
-      sliderRef.current.scrollBy({
-        left: direction === "left" ? -scrollAmount : scrollAmount,
-        behavior: "smooth"
-      });
-    }
+  const scroll = (dir: "left" | "right") => {
+    sliderRef.current?.scrollBy({ left: dir === "left" ? -370 : 370, behavior: "smooth" });
   };
 
   const handleMouseDown = (e: React.MouseEvent) => {
     if (!sliderRef.current) return;
     setIsDown(true);
     setStartX(e.pageX - sliderRef.current.offsetLeft);
-    setScrollLeft(sliderRef.current.scrollLeft);
+    setScrollLeftState(sliderRef.current.scrollLeft);
   };
-
-  const handleMouseLeave = () => setIsDown(false);
-  const handleMouseUp = () => setIsDown(false);
-
+  const stop = () => setIsDown(false);
   const handleMouseMove = (e: React.MouseEvent) => {
     if (!isDown || !sliderRef.current) return;
     e.preventDefault();
-    const x = e.pageX - sliderRef.current.offsetLeft;
-    const walk = (x - startX) * 1.5; 
-    sliderRef.current.scrollLeft = scrollLeft - walk;
+    sliderRef.current.scrollLeft = scrollLeftState - (e.pageX - sliderRef.current.offsetLeft - startX) * 1.5;
   };
+
+  const totalDocs = departmentsData.reduce((s, d) => s + d.doctors.length, 0);
 
   return (
     <section id="doctors" className="py-5" style={{ backgroundColor: "#f0f4f8" }}>
       <div className="container py-4">
-        
-        {/* Header & Controls */}
+
+        {/* Header */}
         <div className="d-flex flex-column flex-md-row justify-content-between align-items-md-end mb-5 gap-3">
           <div>
+            <span
+              className="badge rounded-pill bg-white text-primary border border-primary px-3 py-2 mb-3 shadow-sm"
+              style={{ letterSpacing: "1px", fontSize: "0.8rem" }}
+            >
+              MEET THE TEAM
+            </span>
             <h2 className="display-6 fw-bold mb-2" style={{ color: "#003366", letterSpacing: "-1px" }}>
               Our Specialists
             </h2>
             <p className="text-muted fs-5 mb-0">
-              Explore our comprehensive list of specialized doctors and their qualifications.
+              {totalDocs}+ experienced doctors across {departmentsData.length} specialities — all under one roof.
             </p>
           </div>
-          
+
           <div className="d-flex gap-2">
-            <button 
+            <button
               onClick={() => scroll("left")}
               className="btn rounded-circle d-flex align-items-center justify-content-center shadow-sm"
               style={{ width: "45px", height: "45px", backgroundColor: "#fff", color: "#0072ce", border: "none" }}
             >
               <FaChevronLeft />
             </button>
-            <button 
+            <button
               onClick={() => scroll("right")}
               className="btn rounded-circle d-flex align-items-center justify-content-center shadow-sm text-white"
               style={{ width: "45px", height: "45px", backgroundColor: "#0072ce", border: "none" }}
@@ -250,102 +266,110 @@ const Doctors = () => {
           </div>
         </div>
 
-        {/* Drag-to-Scroll Container */}
-        <div 
+        {/* Drag-to-Scroll Slider */}
+        <div
           ref={sliderRef}
           onMouseDown={handleMouseDown}
-          onMouseLeave={handleMouseLeave}
-          onMouseUp={handleMouseUp}
+          onMouseLeave={stop}
+          onMouseUp={stop}
           onMouseMove={handleMouseMove}
           className="d-flex gap-4 pb-4 align-items-start"
           style={{
             overflowX: "auto",
-            scrollSnapType: isDown ? "none" : "x mandatory", 
-            scrollbarWidth: "none", 
-            msOverflowStyle: "none", 
+            scrollSnapType: isDown ? "none" : "x mandatory",
+            scrollbarWidth: "none",
+            msOverflowStyle: "none",
             cursor: isDown ? "grabbing" : "grab",
-            userSelect: "none" 
+            userSelect: "none",
           }}
         >
           <style>{`div::-webkit-scrollbar { display: none; }`}</style>
 
-          {/* Map through columns */}
-          {groupedColumns.map((col, colIndex) => (
-            <div 
-              key={colIndex} 
+          {groupedColumns.map((col, colIdx) => (
+            <div
+              key={colIdx}
               className="d-flex flex-column gap-4 flex-shrink-0"
-              style={{ 
-                width: "350px", 
+              style={{
+                width: "350px",
                 scrollSnapAlign: "start",
                 pointerEvents: isDown ? "none" : "auto",
               }}
             >
-              {/* Map through the departments nested inside this column */}
               {col.departments.map((dept, deptIdx) => (
-                
-                <div 
-                  key={deptIdx} 
+                <div
+                  key={deptIdx}
                   className="card border-0 rounded-4 overflow-hidden bg-white"
-                  style={{ boxShadow: "0 4px 15px rgba(0,0,0,0.06)" }}
+                  style={{ boxShadow: "0 4px 20px rgba(0,0,0,0.07)" }}
                 >
-                  
                   {/* Department Header */}
-                  <div 
-                    className="py-3 px-2 text-center text-white" 
-                    style={{ 
-                      background: "linear-gradient(135deg, #003366 0%, #00509e 100%)", 
-                      fontWeight: "700", 
-                      letterSpacing: "1px", 
+                  <div
+                    className="py-3 px-3 text-center text-white"
+                    style={{
+                      background: "linear-gradient(135deg, #003366 0%, #0072ce 100%)",
+                      fontWeight: "700",
+                      letterSpacing: "0.8px",
                       textTransform: "uppercase",
-                      fontSize: "0.95rem" 
+                      fontSize: "0.88rem",
                     }}
                   >
                     {dept.department}
                   </div>
-                  
-                  {/* Doctors List for this specific department */}
-                  <div className="card-body p-0 bg-white d-flex flex-column">
-                    {dept.doctors.map((doc, docIdx) => {
-                      return (
-                        <div 
-                          key={docIdx} 
-                          className={`p-4 d-flex flex-column align-items-center text-center transition-all ${docIdx !== dept.doctors.length - 1 ? 'border-bottom border-light' : ''}`}
-                          style={{ transition: "background-color 0.2s ease" }}
-                          onMouseEnter={(e) => e.currentTarget.style.backgroundColor = "#f8fafc"}
-                          onMouseLeave={(e) => e.currentTarget.style.backgroundColor = "transparent"}
-                        >
-                          <img 
-                            src={doc.image} 
-                            alt={doc.name} 
-                            draggable="false"
-                            className="rounded-circle mb-3 shadow"
-                            style={{ 
-                              width: "85px", 
-                              height: "85px", 
-                              objectFit: "cover", 
-                              border: "3px solid #ffffff",
-                              userSelect: "none",
-                              backgroundColor: "#f1f5f9"
-                            }}
-                          />
-                          
-                          <h5 className="fw-bold mb-2" style={{ color: "#0072ce", fontSize: "1.1rem" }}>{doc.name}</h5>
-                          
-                          <div className="text-muted d-flex align-items-start justify-content-center gap-2 px-2" style={{ fontSize: "0.85rem", lineHeight: "1.5" }}>
-                            <FaUserMd style={{ color: "#b4d333", flexShrink: 0, marginTop: "3px" }} />
-                            <span>{doc.degree}</span>
-                          </div>
-                        </div>
-                      );
-                    })}
-                  </div>
 
+                  {/* Doctors */}
+                  <div className="card-body p-0 d-flex flex-column">
+                    {dept.doctors.map((doc, docIdx) => (
+                      <div
+                        key={docIdx}
+                        className={`p-4 d-flex flex-column align-items-center text-center${
+                          docIdx !== dept.doctors.length - 1 ? " border-bottom border-light" : ""
+                        }`}
+                        style={{ transition: "background-color 0.2s ease" }}
+                        onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#f8fafc")}
+                        onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "transparent")}
+                      >
+                        <img
+                          src={doc.image}
+                          alt={doc.name}
+                          draggable="false"
+                          className="rounded-circle mb-3"
+                          style={{
+                            width: "90px",
+                            height: "90px",
+                            objectFit: "cover",
+                            objectPosition: "top center",
+                            border: "3px solid #e8edf4",
+                            backgroundColor: "#e8edf4",
+                            userSelect: "none",
+                            boxShadow: "0 4px 12px rgba(0,114,206,0.12)",
+                          }}
+                          onError={(e) => {
+                            (e.currentTarget as HTMLImageElement).src = defaultImg;
+                          }}
+                        />
+
+                        <h5 className="fw-bold mb-2" style={{ color: "#0072ce", fontSize: "1.05rem" }}>
+                          {doc.name}
+                        </h5>
+
+                        <div
+                          className="text-muted d-flex align-items-start justify-content-center gap-2 px-1"
+                          style={{ fontSize: "0.82rem", lineHeight: "1.55" }}
+                        >
+                          <FaUserMd style={{ color: "#b4d333", flexShrink: 0, marginTop: "3px" }} />
+                          <span>{doc.degree}</span>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
                 </div>
               ))}
             </div>
           ))}
         </div>
 
+        <p className="text-center text-muted mt-3" style={{ fontSize: "0.85rem" }}>
+          ← Drag or use the arrows to explore all specialists →
+        </p>
       </div>
     </section>
   );

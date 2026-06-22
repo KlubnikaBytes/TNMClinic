@@ -1,4 +1,4 @@
-import { FaUserMd, FaVial } from "react-icons/fa";
+import { FaUserMd, FaVial, FaHospital, FaPills, FaHome } from "react-icons/fa";
 import image1 from "../assets/image1.png";
 import image2 from "../assets/image2.png";
 // 1. Import the PDF file so Vite bundles it correctly
@@ -54,7 +54,7 @@ const Hero = () => {
             textShadow: "0px 4px 12px rgba(0,0,0,0.5)" 
           }}
         >
-          A Better Life Starts with a<br className="d-none d-md-block"/> Beautiful Smile
+          Complete Healthcare<br className="d-none d-md-block"/> Under One Roof
         </h1>
         <p 
           className="lead mx-auto mb-5 text-white" 
@@ -65,7 +65,7 @@ const Hero = () => {
             textShadow: "0px 2px 8px rgba(0,0,0,0.4)"
           }}
         >
-          You Can Book An Appointment With The Doctor Of Your Choice By Clicking The Button Below.
+          Quality Healthcare, Close to Home
         </p>
         
         {/* Dual Call-To-Action Buttons */}
@@ -141,6 +141,113 @@ const Hero = () => {
             <FaVial className="me-2" fontSize="1.1rem" /> 
             Blood Test List
           </button>
+
+        </div>
+
+        {/* Service Highlight Cards */}
+        <div className="row g-3 justify-content-center mt-5" style={{ maxWidth: "900px", margin: "0 auto", marginTop: "3rem" }}>
+
+          {/* Clinic Facility */}
+          <div className="col-12 col-md-4">
+            <div
+              className="d-flex align-items-center gap-3 rounded-4 px-4 py-3 text-white text-start"
+              style={{
+                background: "rgba(255,255,255,0.12)",
+                backdropFilter: "blur(14px)",
+                WebkitBackdropFilter: "blur(14px)",
+                border: "1px solid rgba(255,255,255,0.25)",
+                boxShadow: "0 8px 24px rgba(0,0,0,0.2)",
+                transition: "all 0.3s ease"
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.background = "rgba(0,114,206,0.45)";
+                e.currentTarget.style.transform = "translateY(-4px)";
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.background = "rgba(255,255,255,0.12)";
+                e.currentTarget.style.transform = "translateY(0)";
+              }}
+            >
+              <div
+                className="d-flex align-items-center justify-content-center rounded-circle flex-shrink-0"
+                style={{ width: "52px", height: "52px", backgroundColor: "rgba(0,114,206,0.6)", color: "#ffffff" }}
+              >
+                <FaHospital size={24} />
+              </div>
+              <div>
+                <div className="fw-bold" style={{ fontSize: "1.05rem", letterSpacing: "0.3px" }}>Clinic Facility</div>
+                <div style={{ fontSize: "0.82rem", opacity: 0.8, lineHeight: "1.4" }}>Modern, fully-equipped OPD</div>
+              </div>
+            </div>
+          </div>
+
+          {/* Pharmacy */}
+          <div className="col-12 col-md-4">
+            <div
+              className="d-flex align-items-center gap-3 rounded-4 px-4 py-3 text-white text-start"
+              style={{
+                background: "rgba(255,255,255,0.12)",
+                backdropFilter: "blur(14px)",
+                WebkitBackdropFilter: "blur(14px)",
+                border: "1px solid rgba(255,255,255,0.25)",
+                boxShadow: "0 8px 24px rgba(0,0,0,0.2)",
+                transition: "all 0.3s ease"
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.background = "rgba(180,211,51,0.45)";
+                e.currentTarget.style.transform = "translateY(-4px)";
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.background = "rgba(255,255,255,0.12)";
+                e.currentTarget.style.transform = "translateY(0)";
+              }}
+            >
+              <div
+                className="d-flex align-items-center justify-content-center rounded-circle flex-shrink-0"
+                style={{ width: "52px", height: "52px", backgroundColor: "rgba(180,211,51,0.6)", color: "#003366" }}
+              >
+                <FaPills size={24} />
+              </div>
+              <div>
+                <div className="fw-bold" style={{ fontSize: "1.05rem", letterSpacing: "0.3px" }}>Pharmacy</div>
+                <div style={{ fontSize: "0.82rem", opacity: 0.8, lineHeight: "1.4" }}>On-site medicines & prescriptions</div>
+              </div>
+            </div>
+          </div>
+
+          {/* Homecare */}
+          <div className="col-12 col-md-4">
+            <div
+              className="d-flex align-items-center gap-3 rounded-4 px-4 py-3 text-white text-start"
+              style={{
+                background: "rgba(255,255,255,0.12)",
+                backdropFilter: "blur(14px)",
+                WebkitBackdropFilter: "blur(14px)",
+                border: "1px solid rgba(255,255,255,0.25)",
+                boxShadow: "0 8px 24px rgba(0,0,0,0.2)",
+                transition: "all 0.3s ease"
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.background = "rgba(0,114,206,0.45)";
+                e.currentTarget.style.transform = "translateY(-4px)";
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.background = "rgba(255,255,255,0.12)";
+                e.currentTarget.style.transform = "translateY(0)";
+              }}
+            >
+              <div
+                className="d-flex align-items-center justify-content-center rounded-circle flex-shrink-0"
+                style={{ width: "52px", height: "52px", backgroundColor: "rgba(0,114,206,0.6)", color: "#ffffff" }}
+              >
+                <FaHome size={24} />
+              </div>
+              <div>
+                <div className="fw-bold" style={{ fontSize: "1.05rem", letterSpacing: "0.3px" }}>Homecare</div>
+                <div style={{ fontSize: "0.82rem", opacity: 0.8, lineHeight: "1.4" }}>Home visits & sample collection</div>
+              </div>
+            </div>
+          </div>
 
         </div>
       </div>

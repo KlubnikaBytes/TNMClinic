@@ -79,7 +79,7 @@ const Contact = () => {
               <div>
                 <h6 className="fw-bold mb-2">Hours</h6>
                 <p className="mb-0 opacity-75" style={{ fontSize: "0.85rem", lineHeight: "1.6" }}>
-                  Open Daily<br />Closes at 10:00 PM
+                  Open Daily<br />7 AM – 10 PM
                 </p>
               </div>
             </div>
@@ -101,7 +101,7 @@ const Contact = () => {
               <div>
                 <h6 className="fw-bold mb-2">Email</h6>
                 <p className="mb-0 opacity-75" style={{ fontSize: "0.85rem", lineHeight: "1.6", wordBreak: "break-all" }}>
-                  newtownmultispecialityclinic@gmail.com
+                  thenmc2026@gmail.com
                 </p>
               </div>
             </div>

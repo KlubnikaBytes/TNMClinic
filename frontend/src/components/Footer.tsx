@@ -87,7 +87,7 @@ const Footer = () => {
               Quick Links
             </h4>
             <ul className="list-unstyled d-flex flex-column gap-3 mb-0" style={{ fontSize: "0.95rem" }}>
-              {['Home', 'About', 'Services', 'Reviews', 'Contact Us'].map((link, idx) => {
+              {['Home', 'About', 'Services', 'Contact Us'].map((link, idx) => {
                 const sectionId = link === 'Home' ? '' : link.toLowerCase().replace(' us', '');
                 return (
                   <li key={idx}>

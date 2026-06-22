@@ -5,8 +5,9 @@ import Intro from "../components/Intro";
 import Services from "../components/Services";
 import Doctors from "../components/Doctors";
 import Features from "../components/Features";
-import Testimonials from "../components/Testimonials";
-import Contact from "../components/Contact"; // <-- Imported the new Contact component
+// import Testimonials from "../components/Testimonials"; // temporarily hidden
+import Contact from "../components/Contact";
+import WhyChooseUs from "../components/WhyChooseUs";
 import Footer from "../components/Footer";
 
 const Home = () => {
@@ -22,12 +23,13 @@ const Home = () => {
       <main>
         <Hero />
         <div id="about"><Intro /></div>
+        <WhyChooseUs />
         <div id="services"><Services /></div>
         
         <div id="doctors"><Doctors /></div>
         <div id="features"><Features /></div>
         
-        <div id="reviews"><Testimonials /></div>
+        {/* Reviews section temporarily hidden - will be re-added later */}
         
         {/* Rendered the Contact component here */}
         <div id="contact"><Contact /></div> 
