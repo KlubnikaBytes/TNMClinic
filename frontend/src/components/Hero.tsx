@@ -2,7 +2,7 @@ import { FaUserMd, FaVial, FaHospital, FaPills, FaHome } from "react-icons/fa";
 import image1 from "../assets/image1.png";
 import image2 from "../assets/image2.png";
 // 1. Import the PDF file so Vite bundles it correctly
-import doctorListPDF from "../assets/The Newtown Multispeciality Clinic DOCTOR LIST1.pdf";
+import doctorListPDF from "../assets/Doctor list.pdf";
 
 const Hero = () => {
   return (

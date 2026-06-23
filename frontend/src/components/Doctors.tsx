@@ -1,75 +1,100 @@
 import { useRef, useState } from "react";
 import { FaChevronLeft, FaChevronRight, FaUserMd } from "react-icons/fa";
 
-// ── ALL available images (exact filenames verified from VSCode explorer) ────
-import imgAishee          from "../assets/doctor image/Dr. Aishee Bhattacharya.png";
-import imgAnirbanRay      from "../assets/doctor image/Dr. Anirban Ray.jpg";
-import imgAniruddha       from "../assets/doctor image/Dr. Aniruddha Chakrabarty.jpg";
-import imgAnurag          from "../assets/doctor image/Dr. Anurag Chatterjee.jpg";
+// ── All approved doctors ─────────────────────────────────────────────────────
 import imgAranyak         from "../assets/doctor image/Dr. Aranyak Sarkar.jpeg";
-import imgArijit          from "../assets/doctor image/Dr. Arijit Chakraborty.jpg";
+import imgAswini          from "../assets/doctor image/Dr. Aswini Rana.jpg";
+import imgPartha          from "../assets/doctor image/Dr. Partha Chakraborty.webp";
+import imgIndrashis       from "../assets/doctor image/Dr. Indrashis Podder.jpg";
+import imgAniruddha       from "../assets/doctor image/Dr. Aniruddha Chakrabarty.jpg";
+import imgAishee          from "../assets/doctor image/Dr. Aishee Bhattacharya.png";
+import imgDipankar        from "../assets/doctor image/Dr. Dipankar Pal.jpg";
+import imgKrishanko       from "../assets/doctor image/Dr. Krishanko Das.png";
+import imgSubhro          from "../assets/doctor image/Dr.Subhro Sekhar Chakraborty.png";
+import imgSubhasishDeb    from "../assets/doctor image/Dr.  Subhasish Deb.jpg";
+import imgAnirbanRay      from "../assets/doctor image/Dr. Anirban Ray.jpg";
+import imgDebasish        from "../assets/doctor image/Dr. Debasish Bhattacharya.jpg";
+import imgSilima          from "../assets/doctor image/Dr. Silima S Tarenia.jpg";
 import imgArka            from "../assets/doctor image/Dr. Arka Adhvaryu (Retd).avif";
 import imgArkaprava       from "../assets/doctor image/Dr. Arkaprava Mahapatra.webp";
-import imgAswini          from "../assets/doctor image/Dr. Aswini Rana.jpg";
 import imgAtanu           from "../assets/doctor image/Dr. Atanu Biswas.avif";
-import imgAviroop         from "../assets/doctor image/Dr. Aviroop Saha Roy.jpg";
-import imgDebasish        from "../assets/doctor image/Dr. Debasish Bhattacharya.jpg";
-import imgDipankar        from "../assets/doctor image/Dr. Dipankar Pal.jpg";
-import imgGargi           from "../assets/doctor image/Dr. Gargi Nandi.jpg";
-import imgGaurav          from "../assets/doctor image/Dr. Gaurav Aggarwal.jpg";
-import imgIndrashis       from "../assets/doctor image/Dr. Indrashis Podder.jpg";
+import imgSayan           from "../assets/doctor image/Dr. Sayan Mazumder.jpg";
+import imgSubrata         from "../assets/doctor image/Dr. Subrata Biswas.webp";
+import imgLipika          from "../assets/doctor image/Dr. Lipika Das(Mukhopadhyay).jpg";
+import imgSmita           from "../assets/doctor image/Dr. Smita Ghatak.webp";
+import imgKhooshboo       from "../assets/doctor image/Dr. Khooshboo Agarwal.jpg";
+import imgSunanda         from "../assets/doctor image/Dr. Sunanda De.jpg";
+import imgSankarshan      from "../assets/doctor image/Dr. Sankarshan Saha.jpg";
+import imgAbhishek        from "../assets/doctor image/Dr.Abhishek Bhaumik.jpg";
+import imgSaurav          from "../assets/doctor image/Dr. Saurav Sarkar.jpg";
+import imgRitambhar       from "../assets/doctor image/Dr. Ritambhar Mondal.jpg";
 import imgIpseet          from "../assets/doctor image/Dr. Ipseet Mishra.jpg";
 import imgKaran           from "../assets/doctor image/Dr. Karan Sehgal.jpg";
-import imgKhooshboo       from "../assets/doctor image/Dr. Khooshboo Agarwal.jpg";
-import imgKoustav         from "../assets/doctor image/Dr. Koustav Jana.jpeg";
-import imgKrishanko       from "../assets/doctor image/Dr. Krishanko Das.png";
-import imgLipika          from "../assets/doctor image/Dr. Lipika Das(Mukhopadhyay).jpg";
-import imgPartha          from "../assets/doctor image/Dr. Partha Chakraborty.webp";
-import imgRitambhar       from "../assets/doctor image/Dr. Ritambhar Mondal.jpg";
-import imgSankarshan      from "../assets/doctor image/Dr. Sankarshan Saha.jpg";
-import imgSaurav          from "../assets/doctor image/Dr. Saurav Sarkar.jpg";
-import imgSayan           from "../assets/doctor image/Dr. Sayan Mazumder.jpg";
-import imgSebabrata       from "../assets/doctor image/Dr. Sebabrata Jana.avif";
-import imgSilima          from "../assets/doctor image/Dr. Silima S Tarenia.jpg";
-import imgSmita           from "../assets/doctor image/Dr. Smita Ghatak.webp";
+import imgArijit          from "../assets/doctor image/Dr. Arijit Chakraborty.jpg";
 import imgSouryav         from "../assets/doctor image/Dr. Souryav Shankar Mondal.jpg";
-import imgSubhasishDeb    from "../assets/doctor image/Dr.  Subhasish Deb.jpg";
-import imgSubhro          from "../assets/doctor image/Dr.Subhro Sekhar Chakraborty.png";
-import imgSubrata         from "../assets/doctor image/Dr. Subrata Biswas.webp";
-import imgSudeshna        from "../assets/doctor image/Dr. Sudeshna Mallik.jpg";
-import imgSunanda         from "../assets/doctor image/Dr. Sunanda De.jpg";
-import imgTK              from "../assets/doctor image/Dr. T. K. Biswas.png";
 import imgTamajit         from "../assets/doctor image/Dr. Tamajit Chakraborty.jpg";
+import imgAnurag          from "../assets/doctor image/Dr. Anurag Chatterjee.jpg";
+import imgGaurav          from "../assets/doctor image/Dr. Gaurav Aggarwal.jpg";
+import imgAviroop         from "../assets/doctor image/Dr. Aviroop Saha Roy.jpg";
 import imgTithi           from "../assets/doctor image/Dr. Tithi Debnath.jpg";
-import imgAbhishek        from "../assets/doctor image/Dr.Abhishek Bhaumik.jpg";
+import imgGargi           from "../assets/doctor image/Dr. Gargi Nandi.jpg";
 
-// ── SVG placeholder for truly missing photos ──────────────────────────────
+// ── SVG placeholder ───────────────────────────────────────────────────────────
 const defaultImg =
   "data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23e8edf2'/%3E%3Ccircle cx='50' cy='36' r='22' fill='%2394a3b8'/%3E%3Cellipse cx='50' cy='88' rx='32' ry='22' fill='%2394a3b8'/%3E%3C/svg%3E";
 
-// ── Departments ordered for even column packing (max 5 per column) ────────
-// Column layout:
-//  Col 1 → Orthopaedics(1) + Paediatrics(1) + Endocrinology(1) + Pain & Palliative(1) = 4
-//  Col 2 → Psychiatry(2) + Dermatology(2) = 4
-//  Col 3 → Pulmonology(2) + Neurology(2) = 4
-//  Col 4 → General Medicine/Diabetology(5) = 5
-//  Col 5 → Cardiology(3) + ENT(2) = 5
-//  Col 6 → Gynaecology & Obstetrics(3) + Urology(2) = 5
-//  Col 7 → Surgical Oncology(2) + Neurosurgery(3) = 5
-//  Col 8 → General Surgery(5) = 5
+// ── Departments — Dr. Aranyak & Dr. Aswini Rana first ───────────────────────
 const departmentsData = [
-  // ── Col 1 ────────────────────────────────────────────────────────────────
+  // ── FIRST TWO: Aranyak & Aswini ──────────────────────────────────────────
   {
     department: "Orthopaedics",
     doctors: [
-      { name: "Dr. Aranyak Sarkar",   degree: "MBBS, MS (Ortho), Fellowship in Arthroscopy", image: imgAranyak },
+      { name: "Dr. Aranyak Sarkar", degree: "MBBS, MS (Ortho), Fellowship in Arthroscopy", image: imgAranyak },
     ],
   },
+  {
+    department: "General Medicine / Diabetology",
+    doctors: [
+      { name: "Dr. Aswini Rana",    degree: "MBBS (Cal), MD (Medicine), IPGMER, CCEBDM (Delhi)", image: imgAswini },
+      { name: "Dr. Atanu Biswas",   degree: "MBBS, MD, CCEBDM, CCIGC",                           image: imgAtanu },
+      { name: "Dr. Sayan Mazumder", degree: "MD Physician, CCOM, FICD, FICM",                    image: imgSayan },
+      { name: "Dr. Subrata Biswas", degree: "MBBS, MD",                                          image: imgSubrata },
+    ],
+  },
+  // ── Rest of specialities ──────────────────────────────────────────────────
   {
     department: "Paediatrics (Child Specialist)",
     doctors: [
       { name: "Dr. Partha Chakraborty", degree: "MBBS (Cal), DCH (Cal), MRCPCH (UK), PGPN (Boston, USA)", image: imgPartha },
-      { name: "Dr. Sudeshna Mallik",    degree: "MBBS, MD (Paediatrics)", image: imgSudeshna },
+    ],
+  },
+  {
+    department: "Dermatology",
+    doctors: [
+      { name: "Dr. Indrashis Podder",     degree: "MBBS, MD, DNB, MNAMS — EAACI Research Fellow (Urticaria), Hospital Del Mar, Barcelona, Spain", image: imgIndrashis },
+      { name: "Dr. Aniruddha Chakrabarty", degree: "MBBS (Kol), MD (DVL) (W.B.U.H.S)",                                                            image: imgAniruddha },
+    ],
+  },
+  {
+    department: "Neurology",
+    doctors: [
+      { name: "Dr. Aishee Bhattacharya", degree: "MBBS, MD (Medicine), DM (Neurology) — IPGMER & SSKM",                                image: imgAishee },
+      { name: "Dr. Dipankar Pal",         degree: "MBBS (Hons), MD (Internal Medicine) Gold Medalist, DM (Neurology) — IPGMER & SSKM", image: imgDipankar },
+    ],
+  },
+  {
+    department: "Cardiology",
+    doctors: [
+      { name: "Dr. Krishanko Das",             degree: "MBBS (Hons), MD (Medicine) Gold Medal — IPGMER & SSKM, DM (Cardiology) — R.G. KAR MCH", image: imgKrishanko },
+      { name: "Dr. Subhro Sekhar Chakraborty", degree: "MD (Med), DM (Cardio) — RML Hospital, New Delhi",                                        image: imgSubhro },
+      { name: "Dr. Subhasish Deb",             degree: "MBBS, MD, MRCP (IRE), DM (Delhi, Gold Medalist)",                                         image: imgSubhasishDeb },
+    ],
+  },
+  {
+    department: "Pulmonology",
+    doctors: [
+      { name: "Dr. Anirban Ray",           degree: "MBBS, DTCD (Cal), DNB",     image: imgAnirbanRay },
+      { name: "Dr. Debasish Bhattacharya", degree: "MBBS, MD (Chest Medicine)", image: imgDebasish },
     ],
   },
   {
@@ -79,85 +104,30 @@ const departmentsData = [
     ],
   },
   {
-    department: "Pain & Palliative Care",
-    doctors: [
-      { name: "Dr. Gargi Nandi", degree: "MBBS, MD, DNB (Anaesthesiology), Fellowship in Pain Management (WBUHS), CCEPC", image: imgGargi },
-    ],
-  },
-  // ── Col 2 ────────────────────────────────────────────────────────────────
-  {
     department: "Psychiatry",
     doctors: [
       { name: "Maj. (Dr.) Arka Adhvaryu (Retd.)", degree: "MBBS (WBUHS), MD Psychiatry (MUHS, AFMC)", image: imgArka },
-      { name: "Dr. Arkaprava Mahapatra",           degree: "MBBS (WBUHS), MD Psychiatry",               image: imgArkaprava },
+      { name: "Dr. Arkaprava Mahapatra",           degree: "MBBS (WBUHS), MD Psychiatry",              image: imgArkaprava },
     ],
   },
-  {
-    department: "Dermatology",
-    doctors: [
-      { name: "Dr. Indrashis Podder",    degree: "MBBS, MD, DNB, MNAMS — EAACI Research Fellow (Urticaria), Hospital Del Mar, Barcelona, Spain", image: imgIndrashis },
-      { name: "Dr. Aniruddha Chakrabarty", degree: "MBBS (Kol), MD (DVL) (W.B.U.H.S)", image: imgAniruddha },
-    ],
-  },
-  // ── Col 3 ────────────────────────────────────────────────────────────────
-  {
-    department: "Pulmonology",
-    doctors: [
-      { name: "Dr. Anirban Ray",          degree: "MBBS, DTCD (Cal), DNB",          image: imgAnirbanRay },
-      { name: "Dr. Debasish Bhattacharya", degree: "MBBS, MD (Chest Medicine)",      image: imgDebasish },
-    ],
-  },
-  {
-    department: "Neurology",
-    doctors: [
-      { name: "Dr. Aishee Bhattacharya", degree: "MBBS, MD (Medicine), DM (Neurology) — IPGMER & SSKM",                                         image: imgAishee },
-      { name: "Dr. Dipankar Pal",         degree: "MBBS (Hons), MD (Internal Medicine) Gold Medalist, DM (Neurology) — IPGMER & SSKM",           image: imgDipankar },
-    ],
-  },
-  // ── Col 4 ────────────────────────────────────────────────────────────────
-  {
-    department: "General Medicine / Diabetology",
-    doctors: [
-      { name: "Dr. Aswini Rana",    degree: "MBBS (Cal), MD (Medicine), IPGMER, CCEBDM (Delhi)", image: imgAswini },
-      { name: "Dr. Atanu Biswas",   degree: "MBBS, MD, CCEBDM, CCIGC",                           image: imgAtanu },
-      { name: "Dr. Sayan Mazumder", degree: "MD Physician, CCOM, FICD, FICM",                    image: imgSayan },
-      { name: "Dr. Subrata Biswas", degree: "MBBS, MD",                                          image: imgSubrata },
-      { name: "Dr. T. K. Biswas",   degree: "MBBS, D.T.M. & H, Tropical Medicine (MD)",         image: imgTK },
-    ],
-  },
-  // ── Col 5 ────────────────────────────────────────────────────────────────
-  {
-    department: "Cardiology",
-    doctors: [
-      { name: "Dr. Krishanko Das",            degree: "MBBS (Hons), MD (Medicine) Gold Medal — IPGMER & SSKM, DM (Cardiology) — R.G. KAR MCH", image: imgKrishanko },
-      { name: "Dr. Subhro Sekhar Chakraborty", degree: "MD (Med), DM (Cardio) — RML Hospital, New Delhi",                                      image: imgSubhro },
-      { name: "Dr. Subhasish Deb",             degree: "MBBS, MD, MRCP (IRE), DM (Delhi, Gold Medalist)",                                      image: imgSubhasishDeb },
-    ],
-  },
-  {
-    department: "ENT",
-    doctors: [
-      { name: "Dr. Aviroop Saha Roy", degree: "MBBS, MS ENT (Gold Medalist), DNB (ENT), MRCS ENT (England)",      image: imgAviroop },
-      { name: "Dr. Tithi Debnath",    degree: "MBBS, MS (ENT), DNB, MRCS ENT (Edinburgh), MNAMS, DAA (CMC Vellore)", image: imgTithi },
-    ],
-  },
-  // ── Col 6 ────────────────────────────────────────────────────────────────
   {
     department: "Gynaecology & Obstetrics",
     doctors: [
-      { name: "Dr. Lipika Das (Mukhopadhyay)", degree: "MS (G&O)",                            image: imgLipika },
-      { name: "Dr. Smita Ghatak",              degree: "MBBS, DGO (WBUHS), DNB (NBEMS, Delhi)", image: imgSmita },
-      { name: "Dr. Khooshboo Agarwal",         degree: "MBBS, MS (OB-GYN)",                  image: imgKhooshboo },
+      { name: "Dr. Lipika Das (Mukhopadhyay)", degree: "MS (G&O)",                               image: imgLipika },
+      { name: "Dr. Smita Ghatak",              degree: "MBBS, DGO (WBUHS), DNB (NBEMS, Delhi)",  image: imgSmita },
+      { name: "Dr. Khooshboo Agarwal",         degree: "MBBS, MS (OB-GYN)",                      image: imgKhooshboo },
     ],
   },
   {
-    department: "Urology",
+    department: "General Surgery",
     doctors: [
-      { name: "Dr. Anurag Chatterjee", degree: "MS (General Surgery), MCh (Urology)",                                                                              image: imgAnurag },
-      { name: "Dr. Gaurav Aggarwal",   degree: "MBBS, MS (General Surgery) Gold Medalist, FAGE, Fellowship (Surgical Oncology) TATA, DNB (Urology)", image: imgGaurav },
+      { name: "Dr. Sunanda De",       degree: "MBBS, MS (General Surgery), FIAGES — Ex Asst. Prof., IPGMER & SSKM",             image: imgSunanda },
+      { name: "Dr. Sankarshan Saha",  degree: "MS (General Surgery), FMAS",                                                     image: imgSankarshan },
+      { name: "Dr. Abhishek Bhaumik", degree: "MBBS, MS (General Surgery), FNB (Minimal Access Surgery), FALS, EFIAGES, FICRS", image: imgAbhishek },
+      { name: "Dr. Saurav Sarkar",    degree: "MBBS (SSKM Hospital), MS (General Surgery)",                                     image: imgSaurav },
+      { name: "Dr. Ritambhar Mondal", degree: "MBBS, MS (General Surgery), FMAS, FIAGES",                                       image: imgRitambhar },
     ],
   },
-  // ── Col 7 ────────────────────────────────────────────────────────────────
   {
     department: "Surgical Oncology",
     doctors: [
@@ -168,25 +138,34 @@ const departmentsData = [
   {
     department: "Neurosurgery",
     doctors: [
-      { name: "Dr. Arijit Chakraborty",    degree: "MBBS, DrNB Neurosurgery (Manipal Bangalore), Fellowship in MIS Spine (Bangalore)", image: imgArijit },
+      { name: "Dr. Arijit Chakraborty",     degree: "MBBS, DrNB Neurosurgery (Manipal Bangalore), Fellowship in MIS Spine (Bangalore)", image: imgArijit },
       { name: "Dr. Souryav Shankar Mondal", degree: "MS (Kol), MCh Neurosurgery (Chennai)",                                            image: imgSouryav },
       { name: "Dr. Tamajit Chakraborty",    degree: "MBBS, DNB (Neurosurgery — Gangaram Hospital)",                                    image: imgTamajit },
     ],
   },
-  // ── Col 8 ────────────────────────────────────────────────────────────────
   {
-    department: "General Surgery",
+    department: "Urology",
     doctors: [
-      { name: "Dr. Sunanda De",      degree: "MBBS, MS (General Surgery), FIAGES — Ex Asst. Prof., IPGMER & SSKM",                       image: imgSunanda },
-      { name: "Dr. Sankarshan Saha", degree: "MS (General Surgery), FMAS",                                                               image: imgSankarshan },
-      { name: "Dr. Abhishek Bhaumik", degree: "MBBS, MS (General Surgery), FNB (Minimal Access Surgery), FALS, EFIAGES, FICRS",          image: imgAbhishek },
-      { name: "Dr. Saurav Sarkar",   degree: "MBBS (SSKM Hospital), MS (General Surgery)",                                               image: imgSaurav },
-      { name: "Dr. Ritambhar Mondal", degree: "MBBS, MS (General Surgery), FMAS, FIAGES",                                               image: imgRitambhar },
+      { name: "Dr. Anurag Chatterjee", degree: "MS (General Surgery), MCh (Urology)",                                                                              image: imgAnurag },
+      { name: "Dr. Gaurav Aggarwal",   degree: "MBBS, MS (General Surgery) Gold Medalist, FAGE, Fellowship (Surgical Oncology) TATA, DNB (Urology)", image: imgGaurav },
+    ],
+  },
+  {
+    department: "ENT",
+    doctors: [
+      { name: "Dr. Aviroop Saha Roy", degree: "MBBS, MS ENT (Gold Medalist), DNB (ENT), MRCS ENT (England)",       image: imgAviroop },
+      { name: "Dr. Tithi Debnath",    degree: "MBBS, MS (ENT), DNB, MRCS ENT (Edinburgh), MNAMS, DAA (CMC Vellore)", image: imgTithi },
+    ],
+  },
+  {
+    department: "Pain & Palliative Care",
+    doctors: [
+      { name: "Dr. Gargi Nandi", degree: "MBBS, MD, DNB (Anaesthesiology), Fellowship in Pain Management (WBUHS), CCEPC", image: imgGargi },
     ],
   },
 ];
 
-// ── Component ──────────────────────────────────────────────────────────────
+// ── Component ─────────────────────────────────────────────────────────────────
 const Doctors = () => {
   const sliderRef = useRef<HTMLDivElement>(null);
   const [isDown, setIsDown] = useState(false);
