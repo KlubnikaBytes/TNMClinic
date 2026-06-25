@@ -4,7 +4,7 @@ import Hero from "../components/Hero";
 import Intro from "../components/Intro";
 import Services from "../components/Services";
 import Doctors from "../components/Doctors";
-import Features from "../components/Features";
+// import Features from "../components/Features"; // "WHAT WE OFFER" section — temporarily hidden, re-enable when needed
 // import Testimonials from "../components/Testimonials"; // temporarily hidden
 import Contact from "../components/Contact";
 import WhyChooseUs from "../components/WhyChooseUs";
@@ -22,19 +22,28 @@ const Home = () => {
       {/* Main Content Flow */}
       <main>
         <Hero />
+
+        {/* About */}
         <div id="about"><Intro /></div>
-        <WhyChooseUs />
-        <div id="services"><Services /></div>
-        
+
+        {/* Doctors — directly below About */}
         <div id="doctors"><Doctors /></div>
-        <div id="features"><Features /></div>
-        
+
+        {/* Services */}
+        <div id="services"><Services /></div>
+
+        {/* "WHAT WE OFFER / Complete Healthcare Under One Roof" — commented out, re-add when needed */}
+        {/* <div id="features"><Features /></div> */}
+
+        {/* Why Choose Us — just above Contact/Find Us */}
+        <WhyChooseUs />
+
         {/* Reviews section temporarily hidden - will be re-added later */}
-        
-        {/* Rendered the Contact component here */}
-        <div id="contact"><Contact /></div> 
+
+        {/* Contact / Find Us */}
+        <div id="contact"><Contact /></div>
       </main>
-      
+
       {/* Footer */}
       <Footer />
     </>

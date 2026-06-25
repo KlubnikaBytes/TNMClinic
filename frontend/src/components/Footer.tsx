@@ -1,12 +1,11 @@
-import { 
-  FaFacebookF, 
-  FaTwitter, 
-  FaWhatsapp, 
-  FaEnvelope, 
-  FaPhoneAlt, 
-  FaMapMarkerAlt 
+import {
+  FaFacebookF,
+  FaTwitter,
+  FaWhatsapp,
+  FaEnvelope,
+  FaPhoneAlt,
+  FaMapMarkerAlt
 } from "react-icons/fa";
-// 1. Import your custom logo from the assets folder
 import clinicLogo from "../assets/icon.png";
 
 const Footer = () => {
@@ -24,23 +23,20 @@ const Footer = () => {
       {/* Main Footer */}
       <div className="container py-5">
         <div className="row gy-5 align-items-start">
-          
+
           {/* Left Section: Brand & About */}
           <div className="col-lg-4 pe-lg-4">
-            
+
             {/* Custom Image Logo */}
-            <a 
-              href="#" 
+            <a
+              href="#"
               className="text-decoration-none d-inline-block mb-4"
               onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: "smooth" }); }}
             >
-              <img 
-                src={clinicLogo} 
-                alt="The Newtown Multispeciality Clinic" 
-                style={{ 
-                  height: "70px", // Sized slightly larger for the footer
-                  transition: "transform 0.3s ease" 
-                }} 
+              <img
+                src={clinicLogo}
+                alt="The Newtown Multispeciality Clinic"
+                style={{ height: "70px", transition: "transform 0.3s ease" }}
                 onMouseEnter={(e) => e.currentTarget.style.transform = "scale(1.02)"}
                 onMouseLeave={(e) => e.currentTarget.style.transform = "scale(1)"}
               />
@@ -53,12 +49,12 @@ const Footer = () => {
             {/* Social Icons */}
             <div className="d-flex gap-3">
               {[FaFacebookF, FaTwitter, FaWhatsapp].map((Icon, idx) => (
-                <div 
+                <div
                   key={idx}
                   className="d-flex align-items-center justify-content-center rounded-circle transition-hover"
-                  style={{ 
-                    width: "40px", 
-                    height: "40px", 
+                  style={{
+                    width: "40px",
+                    height: "40px",
                     backgroundColor: "rgba(255, 255, 255, 0.1)",
                     cursor: "pointer",
                     color: "#ffffff",
@@ -91,7 +87,7 @@ const Footer = () => {
                 const sectionId = link === 'Home' ? '' : link.toLowerCase().replace(' us', '');
                 return (
                   <li key={idx}>
-                    <a 
+                    <a
                       href={link === 'Home' ? '#' : `#${sectionId}`}
                       className="text-decoration-none transition-hover"
                       style={{ color: "#aab7c4", transition: "color 0.2s ease" }}
@@ -110,27 +106,46 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Right Section: Contact Info */}
+          {/* Right Section: Contact Info — all clickable */}
           <div className="col-lg-3">
             <h4 style={{ color: "#ffffff", fontSize: "1.2rem", fontWeight: "700", marginBottom: "25px" }}>
               Get In Touch
             </h4>
-            
+
             <div className="d-flex flex-column gap-3" style={{ color: "#aab7c4", fontSize: "0.95rem" }}>
+              {/* Email */}
               <div className="d-flex align-items-start gap-3">
                 <FaEnvelope className="mt-1 flex-shrink-0" style={{ color: "#0072ce" }} />
-                <span>thenmc2026@gmail.com</span>
-              </div>
-              
-              <div className="d-flex align-items-start gap-3">
-                <FaPhoneAlt className="mt-1 flex-shrink-0" style={{ color: "#0072ce" }} />
-                <span>+91 81006 50033</span>
+                <a
+                  href="mailto:thenmc2026@gmail.com"
+                  className="text-decoration-none"
+                  style={{ color: "#aab7c4", transition: "color 0.2s" }}
+                  onMouseEnter={(e) => e.currentTarget.style.color = "#b4d333"}
+                  onMouseLeave={(e) => e.currentTarget.style.color = "#aab7c4"}
+                >
+                  thenmc2026@gmail.com
+                </a>
               </div>
 
+              {/* Phone */}
+              <div className="d-flex align-items-start gap-3">
+                <FaPhoneAlt className="mt-1 flex-shrink-0" style={{ color: "#0072ce" }} />
+                <a
+                  href="tel:+918100650033"
+                  className="text-decoration-none"
+                  style={{ color: "#aab7c4", transition: "color 0.2s" }}
+                  onMouseEnter={(e) => e.currentTarget.style.color = "#b4d333"}
+                  onMouseLeave={(e) => e.currentTarget.style.color = "#aab7c4"}
+                >
+                  +91 81006 50033
+                </a>
+              </div>
+
+              {/* Address */}
               <div className="d-flex align-items-start gap-3">
                 <FaMapMarkerAlt className="mt-1 flex-shrink-0" style={{ color: "#0072ce" }} />
                 <span style={{ lineHeight: "1.6" }}>
-                  CE 29, Street Number 247, CE Block, Action Area I, Newtown, Kolkata - 700156
+                  CE 29, Street Number 247, CE Block(Newtown), Action Area I, Newtown, Kolkata, New Town, West Bengal 700156
                 </span>
               </div>
             </div>
@@ -139,7 +154,6 @@ const Footer = () => {
           {/* Right Section: Map */}
           <div className="col-lg-2 text-lg-end mt-4 mt-lg-0">
             <div className="rounded-3 overflow-hidden shadow-sm" style={{ border: "2px solid rgba(255,255,255,0.1)" }}>
-              {/* Dynamic Google Maps embed for the real address */}
               <iframe
                 title="Clinic Location Map"
                 width="100%"
@@ -155,14 +169,14 @@ const Footer = () => {
       </div>
 
       {/* Bottom Copyright Bar */}
-      <div 
-        style={{ 
-          backgroundColor: "#002244", 
-          color: "#8a9bac", 
-          textAlign: "center", 
-          padding: "20px 15px", 
-          fontSize: "0.9rem", 
-          fontWeight: "500" 
+      <div
+        style={{
+          backgroundColor: "#002244",
+          color: "#8a9bac",
+          textAlign: "center",
+          padding: "20px 15px",
+          fontSize: "0.9rem",
+          fontWeight: "500"
         }}
       >
         © {new Date().getFullYear()} The Newtown Multispeciality Clinic. All Rights Reserved.

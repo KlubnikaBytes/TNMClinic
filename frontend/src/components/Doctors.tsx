@@ -1,5 +1,5 @@
-import { useRef, useState } from "react";
-import { FaChevronLeft, FaChevronRight, FaUserMd } from "react-icons/fa";
+import { useState } from "react";
+import { FaUserMd, FaFilter } from "react-icons/fa";
 
 // ── All approved doctors ─────────────────────────────────────────────────────
 import imgAranyak         from "../assets/doctor image/Dr. Aranyak Sarkar.jpeg";
@@ -39,13 +39,12 @@ import imgAviroop         from "../assets/doctor image/Dr. Aviroop Saha Roy.jpg"
 import imgTithi           from "../assets/doctor image/Dr. Tithi Debnath.jpg";
 import imgGargi           from "../assets/doctor image/Dr. Gargi Nandi.jpg";
 
-// ── SVG placeholder ───────────────────────────────────────────────────────────
+// ── SVG placeholder ──────────────────────────────────────────────────────────
 const defaultImg =
   "data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23e8edf2'/%3E%3Ccircle cx='50' cy='36' r='22' fill='%2394a3b8'/%3E%3Cellipse cx='50' cy='88' rx='32' ry='22' fill='%2394a3b8'/%3E%3C/svg%3E";
 
-// ── Departments — Dr. Aranyak & Dr. Aswini Rana first ───────────────────────
+// ── Department data ──────────────────────────────────────────────────────────
 const departmentsData = [
-  // ── FIRST TWO: Aranyak & Aswini ──────────────────────────────────────────
   {
     department: "Orthopaedics",
     doctors: [
@@ -61,7 +60,6 @@ const departmentsData = [
       { name: "Dr. Subrata Biswas", degree: "MBBS, MD",                                          image: imgSubrata },
     ],
   },
-  // ── Rest of specialities ──────────────────────────────────────────────────
   {
     department: "Paediatrics (Child Specialist)",
     doctors: [
@@ -71,7 +69,7 @@ const departmentsData = [
   {
     department: "Dermatology",
     doctors: [
-      { name: "Dr. Indrashis Podder",     degree: "MBBS, MD, DNB, MNAMS — EAACI Research Fellow (Urticaria), Hospital Del Mar, Barcelona, Spain", image: imgIndrashis },
+      { name: "Dr. Indrashis Podder",      degree: "MBBS, MD, DNB, MNAMS — EAACI Research Fellow (Urticaria), Hospital Del Mar, Barcelona, Spain", image: imgIndrashis },
       { name: "Dr. Aniruddha Chakrabarty", degree: "MBBS (Kol), MD (DVL) (W.B.U.H.S)",                                                            image: imgAniruddha },
     ],
   },
@@ -85,9 +83,9 @@ const departmentsData = [
   {
     department: "Cardiology",
     doctors: [
-      { name: "Dr. Krishanko Das",             degree: "MBBS (Hons), MD (Medicine) Gold Medal — IPGMER & SSKM, DM (Cardiology) — R.G. KAR MCH", image: imgKrishanko },
-      { name: "Dr. Subhro Sekhar Chakraborty", degree: "MD (Med), DM (Cardio) — RML Hospital, New Delhi",                                        image: imgSubhro },
-      { name: "Dr. Subhasish Deb",             degree: "MBBS, MD, MRCP (IRE), DM (Delhi, Gold Medalist)",                                         image: imgSubhasishDeb },
+      { name: "Dr. Krishanko Das",              degree: "MBBS (Hons), MD (Medicine) Gold Medal — IPGMER & SSKM, DM (Cardiology) — R.G. KAR MCH", image: imgKrishanko },
+      { name: "Dr. Subhro Sekhar Chakraborty",  degree: "MD (Med), DM (Cardio) — RML Hospital, New Delhi",                                        image: imgSubhro },
+      { name: "Dr. Subhasish Deb",              degree: "MBBS, MD, MRCP (IRE), DM (Delhi, Gold Medalist)",                                         image: imgSubhasishDeb },
     ],
   },
   {
@@ -138,22 +136,22 @@ const departmentsData = [
   {
     department: "Neurosurgery",
     doctors: [
-      { name: "Dr. Arijit Chakraborty",     degree: "MBBS, DrNB Neurosurgery (Manipal Bangalore), Fellowship in MIS Spine (Bangalore)", image: imgArijit },
-      { name: "Dr. Souryav Shankar Mondal", degree: "MS (Kol), MCh Neurosurgery (Chennai)",                                            image: imgSouryav },
-      { name: "Dr. Tamajit Chakraborty",    degree: "MBBS, DNB (Neurosurgery — Gangaram Hospital)",                                    image: imgTamajit },
+      { name: "Dr. Arijit Chakraborty",      degree: "MBBS, DrNB Neurosurgery (Manipal Bangalore), Fellowship in MIS Spine (Bangalore)", image: imgArijit },
+      { name: "Dr. Souryav Shankar Mondal",  degree: "MS (Kol), MCh Neurosurgery (Chennai)",                                            image: imgSouryav },
+      { name: "Dr. Tamajit Chakraborty",     degree: "MBBS, DNB (Neurosurgery — Gangaram Hospital)",                                    image: imgTamajit },
     ],
   },
   {
     department: "Urology",
     doctors: [
-      { name: "Dr. Anurag Chatterjee", degree: "MS (General Surgery), MCh (Urology)",                                                                              image: imgAnurag },
-      { name: "Dr. Gaurav Aggarwal",   degree: "MBBS, MS (General Surgery) Gold Medalist, FAGE, Fellowship (Surgical Oncology) TATA, DNB (Urology)", image: imgGaurav },
+      { name: "Dr. Anurag Chatterjee", degree: "MS (General Surgery), MCh (Urology)",                                                                             image: imgAnurag },
+      { name: "Dr. Gaurav Aggarwal",   degree: "MBBS, MS (General Surgery) Gold Medalist, FAGE, Fellowship (Surgical Oncology) TATA, DNB (Urology)",              image: imgGaurav },
     ],
   },
   {
     department: "ENT",
     doctors: [
-      { name: "Dr. Aviroop Saha Roy", degree: "MBBS, MS ENT (Gold Medalist), DNB (ENT), MRCS ENT (England)",       image: imgAviroop },
+      { name: "Dr. Aviroop Saha Roy", degree: "MBBS, MS ENT (Gold Medalist), DNB (ENT), MRCS ENT (England)",        image: imgAviroop },
       { name: "Dr. Tithi Debnath",    degree: "MBBS, MS (ENT), DNB, MRCS ENT (Edinburgh), MNAMS, DAA (CMC Vellore)", image: imgTithi },
     ],
   },
@@ -165,46 +163,120 @@ const departmentsData = [
   },
 ];
 
+// All unique departments for filter
+const allDepartments = ["All", ...departmentsData.map((d) => d.department)];
+
+// Group departments into columns — max 5 doctors per column
+const MAX_PER_COL = 5;
+function buildColumns(departments: typeof departmentsData) {
+  const cols: { departments: typeof departmentsData; docCount: number }[] = [];
+  let current = { departments: [] as typeof departmentsData, docCount: 0 };
+  departments.forEach((dept) => {
+    if (current.docCount + dept.doctors.length > MAX_PER_COL && current.docCount > 0) {
+      cols.push(current);
+      current = { departments: [], docCount: 0 };
+    }
+    current.departments.push(dept);
+    current.docCount += dept.doctors.length;
+  });
+  if (current.docCount > 0) cols.push(current);
+  return cols;
+}
+
+// ── Single column card renderer ───────────────────────────────────────────────
+const ColumnCard = ({ col }: { col: ReturnType<typeof buildColumns>[0] }) => (
+  <div
+    className="d-flex flex-column gap-4 flex-shrink-0"
+    style={{ width: "340px" }}
+  >
+    {col.departments.map((dept, deptIdx) => (
+      <div
+        key={deptIdx}
+        className="card border-0 rounded-4 overflow-hidden bg-white"
+        style={{ boxShadow: "0 4px 20px rgba(0,0,0,0.07)" }}
+      >
+        {/* Department Header */}
+        <div
+          className="py-3 px-3 text-center text-white"
+          style={{
+            background: "linear-gradient(135deg, #003366 0%, #0072ce 100%)",
+            fontWeight: "700",
+            letterSpacing: "0.8px",
+            textTransform: "uppercase",
+            fontSize: "0.88rem",
+          }}
+        >
+          {dept.department}
+        </div>
+
+        {/* Doctors */}
+        <div className="card-body p-0 d-flex flex-column">
+          {dept.doctors.map((doc, docIdx) => (
+            <div
+              key={docIdx}
+              className={`p-4 d-flex flex-column align-items-center text-center${
+                docIdx !== dept.doctors.length - 1 ? " border-bottom border-light" : ""
+              }`}
+              style={{ transition: "background-color 0.2s ease" }}
+              onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#f8fafc")}
+              onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "transparent")}
+            >
+              <img
+                src={doc.image}
+                alt={doc.name}
+                draggable="false"
+                className="rounded-circle mb-3"
+                style={{
+                  width: "90px",
+                  height: "90px",
+                  objectFit: "cover",
+                  objectPosition: "top center",
+                  border: "3px solid #e8edf4",
+                  backgroundColor: "#e8edf4",
+                  userSelect: "none",
+                  boxShadow: "0 4px 12px rgba(0,114,206,0.12)",
+                }}
+                onError={(e) => { (e.currentTarget as HTMLImageElement).src = defaultImg; }}
+              />
+              <h5 className="fw-bold mb-2" style={{ color: "#0072ce", fontSize: "1.05rem" }}>
+                {doc.name}
+              </h5>
+              <div
+                className="text-muted d-flex align-items-start justify-content-center gap-2 px-1"
+                style={{ fontSize: "0.82rem", lineHeight: "1.55" }}
+              >
+                <FaUserMd style={{ color: "#b4d333", flexShrink: 0, marginTop: "3px" }} />
+                <span>{doc.degree}</span>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    ))}
+  </div>
+);
+
 // ── Component ─────────────────────────────────────────────────────────────────
 const Doctors = () => {
-  const sliderRef = useRef<HTMLDivElement>(null);
-  const [isDown, setIsDown] = useState(false);
-  const [startX, setStartX] = useState(0);
-  const [scrollLeftState, setScrollLeftState] = useState(0);
+  const [activeFilter, setActiveFilter] = useState("All");
+  const [filterOpen, setFilterOpen] = useState(false);
 
-  // Group departments into columns — max 5 doctors per column
-  const MAX_PER_COL = 5;
-  const groupedColumns: { departments: typeof departmentsData; docCount: number }[] = [];
-  let currentCol = { departments: [] as typeof departmentsData, docCount: 0 };
+  // Filtered departments
+  const filteredDepts =
+    activeFilter === "All"
+      ? departmentsData
+      : departmentsData.filter((d) => d.department === activeFilter);
 
-  departmentsData.forEach((dept) => {
-    if (currentCol.docCount + dept.doctors.length > MAX_PER_COL && currentCol.docCount > 0) {
-      groupedColumns.push(currentCol);
-      currentCol = { departments: [], docCount: 0 };
-    }
-    currentCol.departments.push(dept);
-    currentCol.docCount += dept.doctors.length;
-  });
-  if (currentCol.docCount > 0) groupedColumns.push(currentCol);
+  const groupedColumns = buildColumns(filteredDepts);
 
-  const scroll = (dir: "left" | "right") => {
-    sliderRef.current?.scrollBy({ left: dir === "left" ? -370 : 370, behavior: "smooth" });
-  };
+  // When filtered to 1 department, no need to loop; otherwise duplicate for seamless loop
+  const isFiltered = activeFilter !== "All";
+  // Duplicate columns for seamless CSS marquee (same trick as ticker)
+  const displayColumns = isFiltered ? groupedColumns : [...groupedColumns, ...groupedColumns];
 
-  const handleMouseDown = (e: React.MouseEvent) => {
-    if (!sliderRef.current) return;
-    setIsDown(true);
-    setStartX(e.pageX - sliderRef.current.offsetLeft);
-    setScrollLeftState(sliderRef.current.scrollLeft);
-  };
-  const stop = () => setIsDown(false);
-  const handleMouseMove = (e: React.MouseEvent) => {
-    if (!isDown || !sliderRef.current) return;
-    e.preventDefault();
-    sliderRef.current.scrollLeft = scrollLeftState - (e.pageX - sliderRef.current.offsetLeft - startX) * 1.5;
-  };
-
-  const totalDocs = departmentsData.reduce((s, d) => s + d.doctors.length, 0);
+  // Each column is 340px wide + 16px gap = 356px
+  // Animation duration scales with number of original columns so speed feels consistent
+  const animDuration = `${groupedColumns.length * 8}s`;
 
   return (
     <section id="doctors" className="py-5" style={{ backgroundColor: "#f0f4f8" }}>
@@ -213,143 +285,152 @@ const Doctors = () => {
         {/* Header */}
         <div className="d-flex flex-column flex-md-row justify-content-between align-items-md-end mb-5 gap-3">
           <div>
-            <span
-              className="badge rounded-pill bg-white text-primary border border-primary px-3 py-2 mb-3 shadow-sm"
-              style={{ letterSpacing: "1px", fontSize: "0.8rem" }}
-            >
-              MEET THE TEAM
+            <span className="premium-subtitle">
+              Meet The Team
             </span>
-            <h2 className="display-6 fw-bold mb-2" style={{ color: "#003366", letterSpacing: "-1px" }}>
+            <h2 className="display-6 premium-title mb-2">
               Our Specialists
             </h2>
-            <p className="text-muted fs-5 mb-0">
-              {totalDocs}+ experienced doctors across {departmentsData.length} specialities — all under one roof.
-            </p>
           </div>
 
-          <div className="d-flex gap-2">
+          {/* Specialisation Filter */}
+          <div className="position-relative">
             <button
-              onClick={() => scroll("left")}
-              className="btn rounded-circle d-flex align-items-center justify-content-center shadow-sm"
-              style={{ width: "45px", height: "45px", backgroundColor: "#fff", color: "#0072ce", border: "none" }}
-            >
-              <FaChevronLeft />
-            </button>
-            <button
-              onClick={() => scroll("right")}
-              className="btn rounded-circle d-flex align-items-center justify-content-center shadow-sm text-white"
-              style={{ width: "45px", height: "45px", backgroundColor: "#0072ce", border: "none" }}
-            >
-              <FaChevronRight />
-            </button>
-          </div>
-        </div>
-
-        {/* Drag-to-Scroll Slider */}
-        <div
-          ref={sliderRef}
-          onMouseDown={handleMouseDown}
-          onMouseLeave={stop}
-          onMouseUp={stop}
-          onMouseMove={handleMouseMove}
-          className="d-flex gap-4 pb-4 align-items-start"
-          style={{
-            overflowX: "auto",
-            scrollSnapType: isDown ? "none" : "x mandatory",
-            scrollbarWidth: "none",
-            msOverflowStyle: "none",
-            cursor: isDown ? "grabbing" : "grab",
-            userSelect: "none",
-          }}
-        >
-          <style>{`div::-webkit-scrollbar { display: none; }`}</style>
-
-          {groupedColumns.map((col, colIdx) => (
-            <div
-              key={colIdx}
-              className="d-flex flex-column gap-4 flex-shrink-0"
+              className="btn d-flex align-items-center gap-2 rounded-pill px-4 py-2 fw-semibold shadow-sm border-0"
               style={{
-                width: "350px",
-                scrollSnapAlign: "start",
-                pointerEvents: isDown ? "none" : "auto",
+                backgroundColor: activeFilter === "All" ? "#003366" : "#0072ce",
+                color: "#fff",
+                transition: "all 0.2s ease",
+                whiteSpace: "nowrap",
               }}
+              onClick={() => setFilterOpen(!filterOpen)}
             >
-              {col.departments.map((dept, deptIdx) => (
-                <div
-                  key={deptIdx}
-                  className="card border-0 rounded-4 overflow-hidden bg-white"
-                  style={{ boxShadow: "0 4px 20px rgba(0,0,0,0.07)" }}
-                >
-                  {/* Department Header */}
-                  <div
-                    className="py-3 px-3 text-center text-white"
+              <FaFilter size={12} />
+              {activeFilter === "All" ? "View by Specialisation" : activeFilter}
+              <span style={{ marginLeft: "2px", opacity: 0.7, fontSize: "0.72rem" }}>
+                {filterOpen ? "▲" : "▼"}
+              </span>
+            </button>
+
+            {filterOpen && (
+              <div
+                className="position-absolute end-0 mt-2 bg-white rounded-4 shadow-lg py-2"
+                style={{
+                  minWidth: "260px",
+                  zIndex: 200,
+                  border: "1px solid rgba(0,0,0,0.08)",
+                  maxHeight: "340px",
+                  overflowY: "auto",
+                }}
+              >
+                {allDepartments.map((dept) => (
+                  <button
+                    key={dept}
+                    className="d-block w-100 text-start px-4 py-2 border-0 bg-transparent fw-medium"
                     style={{
-                      background: "linear-gradient(135deg, #003366 0%, #0072ce 100%)",
-                      fontWeight: "700",
-                      letterSpacing: "0.8px",
-                      textTransform: "uppercase",
+                      color: activeFilter === dept ? "#0072ce" : "#003366",
+                      backgroundColor: activeFilter === dept ? "rgba(0,114,206,0.06)" : "transparent",
                       fontSize: "0.88rem",
+                      transition: "background 0.15s",
+                    }}
+                    onMouseEnter={(e) => {
+                      if (activeFilter !== dept) e.currentTarget.style.backgroundColor = "#f5f7fa";
+                    }}
+                    onMouseLeave={(e) => {
+                      if (activeFilter !== dept) e.currentTarget.style.backgroundColor = "transparent";
+                    }}
+                    onClick={() => {
+                      setActiveFilter(dept);
+                      setFilterOpen(false);
                     }}
                   >
-                    {dept.department}
-                  </div>
-
-                  {/* Doctors */}
-                  <div className="card-body p-0 d-flex flex-column">
-                    {dept.doctors.map((doc, docIdx) => (
-                      <div
-                        key={docIdx}
-                        className={`p-4 d-flex flex-column align-items-center text-center${
-                          docIdx !== dept.doctors.length - 1 ? " border-bottom border-light" : ""
-                        }`}
-                        style={{ transition: "background-color 0.2s ease" }}
-                        onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#f8fafc")}
-                        onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "transparent")}
-                      >
-                        <img
-                          src={doc.image}
-                          alt={doc.name}
-                          draggable="false"
-                          className="rounded-circle mb-3"
-                          style={{
-                            width: "90px",
-                            height: "90px",
-                            objectFit: "cover",
-                            objectPosition: "top center",
-                            border: "3px solid #e8edf4",
-                            backgroundColor: "#e8edf4",
-                            userSelect: "none",
-                            boxShadow: "0 4px 12px rgba(0,114,206,0.12)",
-                          }}
-                          onError={(e) => {
-                            (e.currentTarget as HTMLImageElement).src = defaultImg;
-                          }}
-                        />
-
-                        <h5 className="fw-bold mb-2" style={{ color: "#0072ce", fontSize: "1.05rem" }}>
-                          {doc.name}
-                        </h5>
-
-                        <div
-                          className="text-muted d-flex align-items-start justify-content-center gap-2 px-1"
-                          style={{ fontSize: "0.82rem", lineHeight: "1.55" }}
-                        >
-                          <FaUserMd style={{ color: "#b4d333", flexShrink: 0, marginTop: "3px" }} />
-                          <span>{doc.degree}</span>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              ))}
-            </div>
-          ))}
+                    {dept === "All" ? "✦ All Specialisations" : dept}
+                    {activeFilter === dept && <span className="ms-2" style={{ color: "#0072ce" }}>✓</span>}
+                  </button>
+                ))}
+              </div>
+            )}
+          </div>
         </div>
 
-        <p className="text-center text-muted mt-3" style={{ fontSize: "0.85rem" }}>
-          ← Drag or use the arrows to explore all specialists →
-        </p>
+        {/* Active filter badge */}
+        {activeFilter !== "All" && (
+          <div className="mb-4 d-flex align-items-center gap-3">
+            <span className="text-muted" style={{ fontSize: "0.88rem" }}>Showing:</span>
+            <span
+              className="badge rounded-pill px-3 py-2 fw-semibold"
+              style={{ backgroundColor: "#0072ce", color: "#fff", fontSize: "0.82rem" }}
+            >
+              {activeFilter}
+            </span>
+            <button
+              className="btn btn-sm rounded-pill border-0"
+              style={{ backgroundColor: "rgba(0,0,0,0.06)", color: "#555", fontSize: "0.78rem" }}
+              onClick={() => setActiveFilter("All")}
+            >
+              Clear ✕
+            </button>
+          </div>
+        )}
+
+        {/* ── CSS Marquee Slider (same as ticker) ── */}
+        <div
+          style={{
+            overflow: "hidden",
+            position: "relative",
+          }}
+        >
+          {/* Fade edges */}
+          <div style={{
+            position: "absolute", left: 0, top: 0, bottom: 0, width: "60px", zIndex: 2,
+            background: "linear-gradient(to right, #f0f4f8, transparent)",
+            pointerEvents: "none",
+          }} />
+          <div style={{
+            position: "absolute", right: 0, top: 0, bottom: 0, width: "60px", zIndex: 2,
+            background: "linear-gradient(to left, #f0f4f8, transparent)",
+            pointerEvents: "none",
+          }} />
+
+          {/* Animated row */}
+          <div
+            className="d-flex gap-4 pb-4 align-items-start"
+            style={{
+              width: "max-content",
+              animation: isFiltered ? "none" : `doctorScroll ${animDuration} linear infinite`,
+              paddingTop: "4px",
+            }}
+            onMouseEnter={(e) => {
+              (e.currentTarget as HTMLDivElement).style.animationPlayState = "paused";
+            }}
+            onMouseLeave={(e) => {
+              (e.currentTarget as HTMLDivElement).style.animationPlayState = "running";
+            }}
+          >
+            {displayColumns.map((col, colIdx) => (
+              <ColumnCard key={colIdx} col={col} />
+            ))}
+          </div>
+        </div>
+
       </div>
+
+      {/* CSS keyframes */}
+      <style>{`
+        @keyframes doctorScroll {
+          0%   { transform: translateX(0); }
+          100% { transform: translateX(-50%); }
+        }
+      `}</style>
+
+      {/* Click-outside to close dropdown */}
+      {filterOpen && (
+        <div
+          className="position-fixed top-0 start-0 w-100 h-100"
+          style={{ zIndex: 199 }}
+          onClick={() => setFilterOpen(false)}
+        />
+      )}
     </section>
   );
 };

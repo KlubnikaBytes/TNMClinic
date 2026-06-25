@@ -1,8 +1,8 @@
-import { FaUserMd, FaClock, FaHome, FaHeartbeat } from "react-icons/fa";
+import { FaUserMd, FaHome } from "react-icons/fa";
 
 const reasons = [
   {
-    icon: <FaClock size={32} />,
+    icon: <FaUserMd size={32} />,
     title: "In-House Doctors During Clinic Hours",
     desc: "Our dedicated in-house doctors are present throughout all clinic hours to ensure you receive prompt, personalised attention — no waiting for referrals.",
     accent: "#0072ce",
@@ -11,7 +11,7 @@ const reasons = [
   },
   {
     icon: <FaUserMd size={32} />,
-    title: "Specialist Doctors — Everyday, Round the Clock",
+    title: "Specialist Doctors — Available Every Day",
     desc: "General Medicine · Paediatrics · Orthopaedics · Gynaecology · General Surgery — every speciality, available every day.",
     accent: "#b4d333",
     bgAccent: "rgba(180, 211, 51, 0.12)",
@@ -24,14 +24,6 @@ const reasons = [
     accent: "#0072ce",
     bgAccent: "rgba(0, 114, 206, 0.08)",
     tag: "At Your Doorstep",
-  },
-  {
-    icon: <FaHeartbeat size={32} />,
-    title: "Professional Home Care Services",
-    desc: "Experienced nurses and paramedics providing home nursing care under the direct supervision of specialist doctors — bringing the clinic to you.",
-    accent: "#b4d333",
-    bgAccent: "rgba(180, 211, 51, 0.12)",
-    tag: "Expert-Led Care",
   },
 ];
 
@@ -46,23 +38,17 @@ const WhyChooseUs = () => {
 
         {/* Header */}
         <div className="text-center mb-5">
-          <span
-            className="badge rounded-pill bg-white text-primary border border-primary px-3 py-2 mb-3 shadow-sm"
-            style={{ letterSpacing: "1px", fontSize: "0.8rem" }}
-          >
-            OUR ADVANTAGE
+          <span className="premium-subtitle">
+            Our Advantage
           </span>
-          <h2
-            className="display-5 fw-bold mb-3"
-            style={{ color: "#003366", letterSpacing: "-1px" }}
-          >
+          <h2 className="display-5 premium-title mb-3">
             Why Choose Us?
           </h2>
           <p
             className="text-muted fs-5 mx-auto"
             style={{ maxWidth: "640px", lineHeight: "1.7" }}
           >
-            We go beyond a regular clinic — delivering specialist care, round-the-clock availability, and services that come to you.
+            We go beyond a regular clinic — delivering specialist care, consistent availability, and services that come to you.
           </p>
         </div>
 
