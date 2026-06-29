@@ -74,7 +74,7 @@ const Contact = () => {
             Fill up the form and ask your queries. Our team will get back to you promptly.
           </p>
           <a
-            href="https://maps.google.com/maps?q=CE%2029,%20CE%20Block,%20Action%20Area%20I,%20Newtown,%20Kolkata,%20West%20Bengal%20700156"
+            href="https://maps.google.com/maps?q=CE+20+CE+36+Street+No+247+Newtown+Action+Area+1+Kolkata+West+Bengal+700156"
             target="_blank"
             rel="noreferrer"
             className="btn text-white rounded-pill px-4 py-2 shadow-sm border-0 d-inline-flex align-items-center"
@@ -104,7 +104,7 @@ const Contact = () => {
               <div>
                 <h6 className="fw-bold mb-2">Address</h6>
                 <p className="mb-0 opacity-75" style={{ fontSize: "0.85rem", lineHeight: "1.6" }}>
-                  CE 29, Street Number 247,<br />CE Block(Newtown), Action Area I,<br />Newtown, Kolkata,<br />New Town, West Bengal 700156
+                  CE 20 &amp; CE 36, Street No 247,<br />Newtown, Action Area 1,<br />Kolkata, West Bengal 700156
                 </p>
               </div>
             </div>
@@ -206,7 +206,7 @@ const Contact = () => {
             <div className="col-lg-6" style={{ minHeight: "400px" }}>
               <iframe
                 title="Clinic Location"
-                src="https://maps.google.com/maps?q=CE%2029,%20CE%20Block,%20Action%20Area%20I,%20Newtown,%20Kolkata,%20West%20Bengal%20700156&t=&z=15&ie=UTF8&iwloc=&output=embed"
+                            src="https://maps.google.com/maps?q=CE%2020%20CE%2036%20Street%20No%20247%20Newtown%20Action%20Area%201%20Kolkata%20West%20Bengal%20700156&t=&z=15&ie=UTF8&iwloc=&output=embed"
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}

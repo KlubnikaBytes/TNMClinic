@@ -23,7 +23,7 @@ const TopBar = () => {
           <FaEnvelope /> thenmc2026@gmail.com
         </a>
         <span className="d-flex align-items-center gap-2">
-          <FaMapMarkerAlt /> CE 29, Street Number 247, CE Block(Newtown), Action Area I, Newtown, Kolkata, New Town, West Bengal 700156
+          <FaMapMarkerAlt /> CE 20 &amp; CE 36, Street No 247, Newtown, Action Area 1, Kolkata, West Bengal 700156
         </span>
       </div>
       <div className="d-flex align-items-center gap-3">

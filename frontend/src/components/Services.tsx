@@ -11,23 +11,22 @@ import {
   FaBrain,
   FaProcedures,
   FaPhoneAlt,
-  FaStar,
-  FaBolt
+  FaStar
 } from "react-icons/fa";
 
 // --- Data: Core Clinic Services ---
 const coreServices = [
-  { name: "Doctor Consultation", icon: <FaUserMd size={26} />, sameDay: false },
-  { name: "Blood Tests", icon: <FaVial size={26} />, sameDay: true },
-  { name: "Pathology", icon: <FaMicroscope size={26} />, sameDay: true },
-  { name: "X-Ray", icon: <FaXRay size={26} />, sameDay: true },
-  { name: "USG (Ultrasound)", icon: <FaWaveSquare size={26} />, sameDay: true },
-  { name: "Colour Doppler", icon: <FaWaveSquare size={26} />, sameDay: true },
-  { name: "Echocardiogram (Echo)", icon: <FaHeartbeat size={26} />, sameDay: true },
-  { name: "ECG", icon: <FaHeartbeat size={26} />, sameDay: true },
-  { name: "Holter Monitor", icon: <FaHeartbeat size={26} />, sameDay: false },
-  { name: "EMG, NCV, EEG", icon: <FaBrain size={26} />, sameDay: false },
-  { name: "Uroflowmetry", icon: <FaProcedures size={26} />, sameDay: false },
+  { name: "Doctor Consultation", icon: <FaUserMd size={26} /> },
+  { name: "Blood Tests", icon: <FaVial size={26} /> },
+  { name: "Pathology", icon: <FaMicroscope size={26} /> },
+  { name: "X-Ray", icon: <FaXRay size={26} /> },
+  { name: "USG (Ultrasound)", icon: <FaWaveSquare size={26} /> },
+  { name: "Colour Doppler", icon: <FaWaveSquare size={26} /> },
+  { name: "Echocardiogram (Echo)", icon: <FaHeartbeat size={26} /> },
+  { name: "ECG", icon: <FaHeartbeat size={26} /> },
+  { name: "Holter Monitor", icon: <FaHeartbeat size={26} /> },
+  { name: "EMG, NCV, EEG", icon: <FaBrain size={26} /> },
+  { name: "Uroflowmetry", icon: <FaProcedures size={26} /> },
 ];
 
 // --- Data: Standard Packages (currently hidden) ---
@@ -41,7 +40,7 @@ const coreServices = [
 // --- Data: Premium TNMC Packages (with pricing) ---
 const tnmcPackages = [
   {
-    title: "TNMC Silver",
+    title: "TNMC Silver Blood Test Package",
     parameters: "40 Parameters",
     originalPrice: "₹2,835",
     offerPrice: "₹899",
@@ -59,7 +58,7 @@ const tnmcPackages = [
     ],
   },
   {
-    title: "TNMC Gold",
+    title: "TNMC Gold Blood Test Package",
     parameters: "49 Parameters",
     originalPrice: "₹4,140",
     offerPrice: "₹1,199",
@@ -77,7 +76,7 @@ const tnmcPackages = [
     ],
   },
   {
-    title: "TNMC Platinum",
+    title: "TNMC Platinum Blood Test Package",
     parameters: "56 Parameters",
     originalPrice: "₹6,430",
     offerPrice: "₹1,699",
@@ -96,7 +95,7 @@ const tnmcPackages = [
     ],
   },
   {
-    title: "TNMC Diamond",
+    title: "TNMC Diamond Blood Test Package",
     parameters: "61 Parameters",
     originalPrice: "₹8,255",
     offerPrice: "₹2,499",
@@ -157,11 +156,11 @@ const Services = () => {
           </div>
         </div>
 
-        {/* ── SAME DAY REPORTS SECTION ── */}
-        <div className="mb-5 pb-2">
-          {/* Hero Banner */}
+
+        {/* ── SAME DAY REPORTS BANNER ── */}
+        <div className="mb-5">
           <div
-            className="rounded-4 p-4 p-md-5 mb-4 position-relative overflow-hidden"
+            className="rounded-4 p-4 p-md-5 position-relative overflow-hidden"
             style={{
               background: "linear-gradient(135deg, #002244 0%, #003d7a 50%, #0072ce 100%)",
               boxShadow: "0 20px 60px rgba(0,34,68,0.25)",
@@ -180,92 +179,34 @@ const Services = () => {
             }} />
 
             <div className="position-relative text-center text-white">
-              {/* Animated badge */}
-              <div className="d-inline-flex align-items-center gap-2 rounded-pill px-4 py-2 mb-4"
+              {/* Animated pulse badge */}
+              <div
+                className="d-inline-flex align-items-center gap-2 rounded-pill px-4 py-2 mb-4"
                 style={{
                   backgroundColor: "#28a745",
                   fontSize: "0.85rem",
                   fontWeight: "700",
                   letterSpacing: "1.5px",
-                  boxShadow: "0 0 0 0 rgba(40,167,69,0.6)",
                   animation: "sameDayPulse 2s infinite",
                 }}
               >
-                <FaBolt size={13} />
+                <span style={{ fontSize: "0.9rem" }}>⚡</span>
                 SAME DAY REPORTS AVAILABLE
               </div>
 
               <h3 className="fw-bold mb-3" style={{ fontSize: "1.9rem", letterSpacing: "-0.5px" }}>
                 Get Your Results — The Same Day
               </h3>
-              <p className="mb-0 mx-auto" style={{ maxWidth: "600px", opacity: 0.82, fontSize: "1rem", lineHeight: "1.7" }}>
+              <p className="mb-0 mx-auto" style={{ maxWidth: "600px", opacity: 0.85, fontSize: "1rem", lineHeight: "1.75" }}>
                 No more waiting days for your reports. Our state-of-the-art diagnostics deliver
                 fast, accurate results — often within a few hours of your test.
               </p>
             </div>
           </div>
-
-          {/* Same Day Test Tiles */}
-          <div className="row g-3">
-            {[
-              { name: "X-Ray",                icon: <FaXRay size={22} />,       color: "#0072ce" },
-              { name: "USG (Ultrasound)",      icon: <FaWaveSquare size={22} />, color: "#003366" },
-              { name: "Echocardiogram (Echo)", icon: <FaHeartbeat size={22} />,  color: "#0072ce" },
-              { name: "ECG",                   icon: <FaHeartbeat size={22} />,  color: "#003366" },
-              { name: "Blood Tests",           icon: <FaVial size={22} />,       color: "#0072ce" },
-              { name: "Pathology",             icon: <FaMicroscope size={22} />, color: "#003366" },
-              { name: "Colour Doppler",        icon: <FaWaveSquare size={22} />, color: "#0072ce" },
-            ].map((item, i) => (
-              <div className="col-6 col-md-4 col-lg-3" key={i}>
-                <div
-                  className="d-flex align-items-center gap-3 rounded-4 px-3 py-3 bg-white h-100"
-                  style={{
-                    boxShadow: "0 4px 16px rgba(0,0,0,0.06)",
-                    border: "1.5px solid rgba(0,114,206,0.1)",
-                    transition: "all 0.25s ease",
-                    cursor: "default",
-                  }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.transform = "translateY(-4px)";
-                    e.currentTarget.style.boxShadow = "0 12px 30px rgba(0,114,206,0.15)";
-                    e.currentTarget.style.borderColor = "#0072ce";
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.transform = "translateY(0)";
-                    e.currentTarget.style.boxShadow = "0 4px 16px rgba(0,0,0,0.06)";
-                    e.currentTarget.style.borderColor = "rgba(0,114,206,0.1)";
-                  }}
-                >
-                  {/* Icon circle */}
-                  <div
-                    className="d-flex align-items-center justify-content-center rounded-circle flex-shrink-0"
-                    style={{
-                      width: "48px", height: "48px",
-                      backgroundColor: `${item.color}14`,
-                      color: item.color,
-                    }}
-                  >
-                    {item.icon}
-                  </div>
-
-                  <div>
-                    <div className="fw-bold" style={{ color: "#003366", fontSize: "0.95rem" }}>
-                      {item.name}
-                    </div>
-                    <div className="d-flex align-items-center gap-1 mt-1">
-                      <FaBolt size={9} style={{ color: "#28a745" }} />
-                      <span style={{ color: "#28a745", fontSize: "0.72rem", fontWeight: "700", letterSpacing: "0.3px" }}>
-                        Same Day Report
-                      </span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
         </div>
 
         {/* --- CORE CLINIC FACILITIES --- */}
+
         <div className="mb-5 pb-5">
           <h3 className="fw-bold mb-4 text-center" style={{ color: "#003366", fontSize: "2rem" }}>Core Clinic Facilities</h3>
           <div className="row g-4 justify-content-center">
@@ -290,23 +231,6 @@ const Services = () => {
                     e.currentTarget.style.borderBottom = "4px solid #0072ce";
                   }}
                 >
-                  {/* Same Day Report badge */}
-                  {service.sameDay && (
-                    <span
-                      className="position-absolute top-0 end-0 d-flex align-items-center gap-1"
-                      style={{
-                        backgroundColor: "#28a745",
-                        color: "#fff",
-                        fontSize: "0.65rem",
-                        fontWeight: "700",
-                        letterSpacing: "0.4px",
-                        padding: "3px 8px",
-                        borderBottomLeftRadius: "8px",
-                      }}
-                    >
-                      <FaBolt size={8} /> Same Day
-                    </span>
-                  )}
                   <div
                     className="d-flex align-items-center justify-content-center rounded-circle"
                     style={{ width: "65px", height: "65px", backgroundColor: "rgba(0, 114, 206, 0.08)", color: "#0072ce" }}
@@ -325,7 +249,7 @@ const Services = () => {
         {/* --- PREMIUM TNMC PACKAGES --- */}
         <div className="mb-5 pb-5">
           <h3 className="fw-bold mb-2 text-center" style={{ color: "#003366", fontSize: "2rem" }}>
-            Premium TNMC Packages
+            Premium TNMC Blood Test Packages
           </h3>
           <p className="text-center text-muted mb-5" style={{ fontSize: "0.95rem" }}>
             * Prices are indicative. Contact us for current offers.

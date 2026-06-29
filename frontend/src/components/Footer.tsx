@@ -43,7 +43,7 @@ const Footer = () => {
             </a>
 
             <p style={{ fontSize: "0.95rem", lineHeight: "1.8", color: "#aab7c4", marginBottom: "25px" }}>
-              Currently, The Newtown Multispeciality Clinic is a progressive medical facility in Newtown. Every day, more than 150 patients trust our skilled doctors with their healthcare needs.
+              The Newtown Multispeciality Clinic is a progressive medical facility in Newtown, Kolkata. Our team of specialist doctors and modern diagnostic facilities are here to serve you every day.
             </p>
 
             {/* Social Icons */}
@@ -145,7 +145,7 @@ const Footer = () => {
               <div className="d-flex align-items-start gap-3">
                 <FaMapMarkerAlt className="mt-1 flex-shrink-0" style={{ color: "#0072ce" }} />
                 <span style={{ lineHeight: "1.6" }}>
-                  CE 29, Street Number 247, CE Block(Newtown), Action Area I, Newtown, Kolkata, New Town, West Bengal 700156
+                  CE 20 &amp; CE 36, Street No 247, Newtown, Action Area 1, Kolkata, West Bengal 700156
                 </span>
               </div>
             </div>
@@ -160,7 +160,7 @@ const Footer = () => {
                 height="180"
                 style={{ border: 0, display: "block" }}
                 loading="lazy"
-                src="https://maps.google.com/maps?q=CE%2029,%20CE%20Block,%20Action%20Area%20I,%20Newtown,%20Kolkata,%20West%20Bengal%20700156&t=&z=14&ie=UTF8&iwloc=&output=embed"
+                src="https://maps.google.com/maps?q=CE%2020%20CE%2036%20Street%20No%20247%20Newtown%20Action%20Area%201%20Kolkata%20West%20Bengal%20700156&t=&z=14&ie=UTF8&iwloc=&output=embed"
               />
             </div>
           </div>

@@ -144,7 +144,8 @@ const Hero = () => {
 
         </div>
 
-        {/* Service Highlight Cards */}
+        {/* Service Highlight Cards — temporarily commented out, can be re-enabled later */}
+        {false && (
         <div className="row g-3 justify-content-center mt-5" style={{ maxWidth: "900px", margin: "0 auto", marginTop: "3rem" }}>
 
           {/* Clinic Facility */}
@@ -215,7 +216,7 @@ const Hero = () => {
             </div>
           </div>
 
-          {/* Radiology — replaces Homecare */}
+          {/* Radiology */}
           <div className="col-12 col-md-4">
             <div
               className="d-flex align-items-center gap-3 rounded-4 px-4 py-3 text-white text-start"
@@ -250,6 +251,7 @@ const Hero = () => {
           </div>
 
         </div>
+        )}
       </div>
 
 
