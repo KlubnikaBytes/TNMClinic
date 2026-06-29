@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { FaArrowRight, FaChevronDown, FaChevronUp } from "react-icons/fa";
+import { FaArrowRight } from "react-icons/fa";
 import { useNavigate, useLocation } from "react-router-dom";
 import clinicLogo from "../assets/icon.png";
 
